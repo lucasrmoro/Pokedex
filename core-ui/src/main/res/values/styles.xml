@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="ToolbarTextStyle" parent="TextAppearance.AppCompat.Widget.ActionBar.Title">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">?attr/colorPrimary</item>
+    </style>
+
+    <style name="TextFieldStyle" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="boxCornerRadiusTopStart">@dimen/smallest_radius</item>
+        <item name="boxCornerRadiusTopEnd">@dimen/smallest_radius</item>
+        <item name="boxCornerRadiusBottomStart">@dimen/smallest_radius</item>
+        <item name="boxCornerRadiusBottomEnd">@dimen/smallest_radius</item>
+        <item name="boxStrokeWidth">@dimen/default_stroke_size</item>
+        <item name="boxStrokeWidthFocused">@dimen/medium_stroke_size</item>
+        <item name="boxStrokeColor">@color/state_color_text_field_stroke</item>
+        <item name="boxBackgroundColor">@color/state_color_text_field_box</item>
+        <item name="endIconMode">custom</item>
+        <item name="errorEnabled">true</item>
+        <item name="hintEnabled">false</item>
+        <item name="errorTextAppearance">@style/TextFieldErrorStyle</item>
+        <item name="android:theme">@style/TextFieldCursorStyle</item>
+    </style>
+
+    <style name="TextFieldCursorStyle" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="colorControlActivated">@color/green_300</item>
+        <item name="android:textColorHighlight">@color/dark_200</item>
+    </style>
+
+    <style name="TextFieldErrorStyle">
+        <item name="android:textSize">@dimen/small_text</item>
+        <item name="android:textColor">@color/red</item>
+        <item name="boxBackgroundColor">@color/light_red</item>
+    </style>
+
+    <style name="TextViewDefaultStyle">
+        <item name="android:textSize">@dimen/default_text</item>
+        <item name="android:textColor">@color/dark_800</item>
+    </style>
+
+    <style name="TextViewBoldStyle" parent="TextViewDefaultStyle">
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="AppBarLayoutStyle" parent="ThemeOverlay.AppCompat.ActionBar">
+        <item name="android:background">@color/green_300</item>
+    </style>
+
+    <style name="RoundedImageView">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">50%</item>
+    </style>
+
+    <style name="RecyclerViewDefaultStyle">
+        <item name="layoutManager">androidx.recyclerview.widget.LinearLayoutManager</item>
+    </style>
+</resources>

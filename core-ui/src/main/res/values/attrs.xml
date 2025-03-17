@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="PokedexTextField">
+        <attr name="header" format="string" />
+        <attr name="android:hint" />
+        <attr name="android:maxLength" />
+        <attr name="inputType" format="enum">
+            <enum name="phone" value="1909" />
+            <enum name="date" value="1910" />
+            <enum name="money" value="1911" />
+        </attr>
+    </declare-styleable>
+
+    <declare-styleable name="PokedexButton">
+        <attr name="android:text" />
+        <attr name="buttonType" format="enum">
+            <enum name="green" value="1" />
+            <enum name="outlined_green" value="2" />
+        </attr>
+    </declare-styleable>
+</resources>

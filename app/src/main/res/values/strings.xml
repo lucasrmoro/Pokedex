@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name_prd">Pokedex</string>
+    <string name="app_name_dev">Pokedex - dev</string>
+</resources>

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="@dimen/big_dimen">
+
+    <ImageView
+        android:id="@+id/ivImage"
+        android:layout_width="@dimen/dialog_image_size"
+        android:layout_height="@dimen/dialog_image_size"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ScrollView
+        android:id="@+id/svContent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tvTitle"
+                style="@style/TextViewBoldStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/medium_dimen"
+                android:gravity="center"
+                android:textSize="@dimen/medium_text"
+                tools:text="Title" />
+
+            <TextView
+                android:id="@+id/tvBodyMessage"
+                style="@style/TextViewDefaultStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/default_text"
+                tools:text="@tools:sample/lorem" />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+    <br.com.pokedex.core_ui.components.PokedexButton
+        android:id="@+id/btnPrimary"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/medium_dimen"
+        android:visibility="gone"
+        app:layout_constraintTop_toBottomOf="@id/svContent"
+        tools:text="Primary button text"
+        tools:visibility="visible" />
+
+    <br.com.pokedex.core_ui.components.PokedexButton
+        android:id="@+id/btnSecondary"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/default_text"
+        android:visibility="gone"
+        app:layout_constraintTop_toBottomOf="@id/btnPrimary"
+        tools:text="Secondary button text"
+        tools:visibility="visible" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

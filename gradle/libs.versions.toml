@@ -1,0 +1,87 @@
+[versions]
+agp = "8.8.2"
+kotlin = "2.1.10"
+ksp = "2.1.10-1.0.31"
+quadrant = "1.9.1"
+coreKtx = "1.15.0"
+junitVersion = "1.2.1"
+espressoCore = "3.6.1"
+appcompat = "1.7.0"
+material = "1.12.0"
+room = "2.6.1"
+coroutines = "1.10.1"
+retrofit = "2.11.0"
+gson = "2.12.1"
+koin-core = "4.0.2"
+koin-android = "4.0.2"
+koin-compiler = "2.0.0"
+navigation = "2.8.8"
+timber = "5.0.1"
+security-crypto = "1.1.0-alpha06"
+okhttp = "4.10.0"
+
+[libraries]
+# Gradle
+kotlin-gradle-plugin = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "kotlin" }
+android-gradle-tools = { module = "com.android.tools.build:gradle", version.ref = "agp" }
+
+# Android
+androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
+androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
+androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }
+androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
+androidx-security = { group = "androidx.security", name = "security-crypto", version.ref = "security-crypto" }
+
+# Navigation
+androidx-navigation-runtime-ktx = { group = "androidx.navigation", name = "navigation-runtime-ktx", version.ref = "navigation" }
+androidx-navigation-ui-ktx = { group = "androidx.navigation", name = "navigation-ui-ktx", version.ref = "navigation" }
+androidx-navigation-fragment = { group = "androidx.navigation", name = "navigation-fragment-ktx", version.ref = "navigation" }
+
+# Google
+material = { group = "com.google.android.material", name = "material", version.ref = "material" }
+
+# Coroutines
+coroutines = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-core", version.ref = "coroutines" }
+
+# Quadrant
+quadrant = { group = "gradle.plugin.com.gaelmarhic", name = "quadrant", version.ref = "quadrant" }
+
+# Room
+room-runtime = { group = "androidx.room", name = "room-runtime", version.ref = "room" }
+room-compiler = { group = "androidx.room", name = "room-compiler", version.ref = "room" }
+room-ktx = { group = "androidx.room", name = "room-ktx", version.ref = "room" }
+
+# Retrofit
+retrofit = { group = "com.squareup.retrofit2", name = "retrofit", version.ref = "retrofit" }
+retrofit-converterGson = { group = "com.squareup.retrofit2", name = "converter-gson", version.ref = "retrofit" }
+okhttp-loggingInterceptor = { group = "com.squareup.okhttp3", name = "logging-interceptor", version.ref = "okhttp" }
+
+# Gson
+gson = { group = "com.google.code.gson", name = "gson", version.ref = "gson" }
+
+# Koin
+koin-core = { group = "io.insert-koin", name = "koin-core", version.ref = "koin-core" }
+koin-android = { group = "io.insert-koin", name = "koin-android", version.ref = "koin-android" }
+koin-compiler = { group = "io.insert-koin", name = "koin-ksp-compiler", version.ref = "koin-compiler" }
+
+# Timber
+timber = { group = "com.jakewharton.timber", name = "timber", version.ref = "timber" }
+
+[plugins]
+android-application = { id = "com.android.application", version.ref = "agp" }
+kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+jetbrains-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
+android-library = { id = "com.android.library", version.ref = "agp" }
+ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
+android-dynamic-feature = { id = "com.android.dynamic-feature", version.ref = "agp" }
+
+# Custom plugins
+pokedex-android-app = { id = "pokedex.android.app" }
+pokedex-android-library = { id = "pokedex.android.library" }
+pokedex-android-feature = { id = "pokedex.android.feature" }
+
+[bundles]
+android = ["androidx-core-ktx", "androidx-appcompat", "androidx-espresso-core", "androidx-junit", "androidx-navigation-ui-ktx", "androidx-navigation-runtime-ktx", "androidx-navigation-fragment"]
+room = ["room-runtime", "room-ktx"]
+koin = ["koin-core", "koin-android"]
+retrofit = ["retrofit", "retrofit-converterGson", "gson"]
