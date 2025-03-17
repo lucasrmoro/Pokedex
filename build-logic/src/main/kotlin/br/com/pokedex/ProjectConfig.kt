@@ -42,6 +42,6 @@ internal object BuildTypes {
 
 internal object ConfigField {
     const val API_BASE_URL = "API_BASE_URL"
-    const val API_BASE_URL_PRD = "https://api-base-url-prd.com"
-    const val API_BASE_URL_DEV = "https://api-base-url-dev.com"
+    const val API_BASE_URL_PRD = "https://pokeapi.co/api/v2/"
+    const val API_BASE_URL_DEV = "https://pokeapi.co/api/v2/"
 }

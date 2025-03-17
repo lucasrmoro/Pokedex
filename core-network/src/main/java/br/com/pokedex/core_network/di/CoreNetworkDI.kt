@@ -32,7 +32,7 @@ private val retrofitModule = module {
     }
     single<HttpLoggingInterceptor> {
         HttpLoggingInterceptor().apply {
-            level = if (br.com.pokedex.core_network.BuildConfig.DEBUG) Level.BODY else Level.NONE
+            level = if (BuildConfig.DEBUG) Level.BODY else Level.NONE
         }
     }
     single<OkHttpClient>(OkHttpClientAuth) {
@@ -45,7 +45,7 @@ private val retrofitModule = module {
     }
     single<Retrofit>(RetrofitAuth) {
         Retrofit.Builder()
-            .baseUrl(br.com.pokedex.core_network.BuildConfig.API_BASE_URL)
+            .baseUrl(BuildConfig.API_BASE_URL)
             .setConverterFactory()
             .client(get<OkHttpClient>(OkHttpClientAuth))
             .build()
@@ -58,7 +58,7 @@ private val retrofitModule = module {
     }
     single<Retrofit>(RetrofitNoAuth) {
         Retrofit.Builder()
-            .baseUrl(br.com.pokedex.core_network.BuildConfig.API_BASE_URL)
+            .baseUrl(BuildConfig.API_BASE_URL)
             .setConverterFactory()
             .client(get<OkHttpClient>(OkHttpClientNoAuth))
             .build()
