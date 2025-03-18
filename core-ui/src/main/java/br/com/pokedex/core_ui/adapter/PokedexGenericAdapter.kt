@@ -5,15 +5,19 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import br.com.pokedex.core_ui.adapter.callbacks.FooAdapterCallbacks
+import br.com.pokedex.core_ui.adapter.callbacks.PokemonsListAdapterCallbacks
 import br.com.pokedex.core_ui.adapter.callbacks.generic.PokedexGenericAdapterCallback
 import br.com.pokedex.core_ui.adapter.diffUtil.GenericItemDiffCallback
 import br.com.pokedex.core_ui.adapter.model.Foo
+import br.com.pokedex.core_ui.adapter.model.PokemonItem
 import br.com.pokedex.core_ui.adapter.model.base.AdapterItem
 import br.com.pokedex.core_ui.adapter.model.base.AdapterViewType
 import br.com.pokedex.core_ui.adapter.viewHolder.FooViewHolder
 import br.com.pokedex.core_ui.adapter.viewHolder.LoadingViewHolder
+import br.com.pokedex.core_ui.adapter.viewHolder.PokemonViewHolder
 import br.com.pokedex.core_ui.databinding.RvFooItemBinding
 import br.com.pokedex.core_ui.databinding.RvLoadingItemBinding
+import br.com.pokedex.core_ui.databinding.RvPokemonItemBinding
 
 class PokedexGenericAdapter(
     private val adapterCallbacks: PokedexGenericAdapterCallback? = null
@@ -31,6 +35,11 @@ class PokedexGenericAdapter(
                     RvFooItemBinding.inflate(inflater, parent, false),
                     adapterCallbacks as? FooAdapterCallbacks
                 )
+
+            AdapterViewType.POKEMON -> PokemonViewHolder(
+                RvPokemonItemBinding.inflate(inflater, parent, false),
+                adapterCallbacks as? PokemonsListAdapterCallbacks
+            )
         }
     }
 
@@ -39,6 +48,7 @@ class PokedexGenericAdapter(
 
         when (this) {
             is FooViewHolder -> onBind(item as Foo)
+            is PokemonViewHolder -> onBind(item as PokemonItem)
         }
     }
 

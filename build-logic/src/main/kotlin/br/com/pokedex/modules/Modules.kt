@@ -9,5 +9,5 @@ object Modules {
     const val LOCAL_STORAGE = ":local-storage"
     const val DATA = ":data"
     const val DOMAIN = ":domain"
-    const val FEATURE_A = ":features:featureA"
+    const val POKEMONS_LIST = ":features:pokemonsList"
 }

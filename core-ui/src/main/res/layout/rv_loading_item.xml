@@ -7,8 +7,9 @@
     android:paddingVertical="@dimen/small_dimen">
 
     <ProgressBar
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:indeterminateTint="@color/green_300" />
+        android:layout_width="@dimen/big_dimen"
+        android:layout_height="@dimen/big_dimen"
+        android:indeterminateDrawable="@drawable/ic_pokeball_spinner"
+        android:indeterminateOnly="true" />
 
 </LinearLayout>

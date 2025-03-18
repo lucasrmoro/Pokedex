@@ -8,7 +8,7 @@ import kotlinx.coroutines.flow.Flow
 
 class FooRepositoryImpl(
     private val dispatcher: CoroutineDispatcher,
-    private val fooLocalDataSource: br.com.pokedex.data.foo.local.FooLocalDataSource,
+    private val fooLocalDataSource: FooLocalDataSource,
     private val fooMapper: FooMapper
 ) : FooRepository {
 

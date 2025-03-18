@@ -12,7 +12,7 @@ android {
 
     dynamicFeatures.apply {
         clear()
-        addAll(listOf(Modules.FEATURE_A))
+        addAll(listOf(Modules.POKEMONS_LIST))
     }
 }
 

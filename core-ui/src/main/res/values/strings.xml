@@ -1,2 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources />
+<resources>
+    <string name="to_favorite">Favorite</string>
+    <string name="to_unfavorite">Unfavorite</string>
+</resources>

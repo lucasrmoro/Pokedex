@@ -19,6 +19,8 @@ navigation = "2.8.8"
 timber = "5.0.1"
 security-crypto = "1.1.0-alpha06"
 okhttp = "4.10.0"
+glide = "4.16.0"
+palette = "1.0.0"
 
 [libraries]
 # Gradle
@@ -66,6 +68,12 @@ koin-compiler = { group = "io.insert-koin", name = "koin-ksp-compiler", version.
 
 # Timber
 timber = { group = "com.jakewharton.timber", name = "timber", version.ref = "timber" }
+
+# Glide
+glide = { group = "com.github.bumptech.glide", name = "glide", version.ref = "glide"}
+
+# Palette
+palette = { group = "androidx.palette", name = "palette-ktx", version.ref = "palette"}
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

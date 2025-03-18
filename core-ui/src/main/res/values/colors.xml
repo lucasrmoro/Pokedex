@@ -15,9 +15,10 @@
     <color name="black">#000000</color>
     <color name="dark_800">#1A1919</color>
     <color name="dark_500">#312F2F</color>
+    <color name="dark_450">#716B6B</color>
     <color name="dark_400">#c2c2c3</color>
     <color name="dark_400_half_opacity">#80c2c2c3</color>
-    <color name="dark_200">#DEDEDE</color>
+    <color name="dark_200">#E3E3E3</color>
     <color name="dark_100">#F1F1F1</color>
     <color name="dark_75">#EDEDED</color>
     <color name="dark_50">#FAFAFA</color>

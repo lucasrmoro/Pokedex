@@ -57,12 +57,12 @@ abstract class BaseContainerActivity<VM : BaseViewModel> : BaseActivity<VM>() {
         )
     }
 
-    fun showScreenLoading() {
-        binding.pbLoading.show()
+    fun showScreenLoading() = with(binding.pbLoading) {
+        show()
     }
 
-    fun dismissScreenLoading() {
-        binding.pbLoading.hide()
+    fun dismissScreenLoading() = with(binding.pbLoading) {
+        hide()
     }
 
     private fun setupScreen() = with(binding) {

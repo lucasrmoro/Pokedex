@@ -19,10 +19,19 @@ val Int.Companion.TWO
 val Int.Companion.THREE
     get() = 3
 
+val Int.Companion.FOUR
+    get() = 4
+
+val Int.Companion.TWENTY
+    get() = 20
+
 val Int.Companion.ONE_HUNDRED
     get() = 100
 
 fun Int?.orZero() = this ?: Int.ZERO
+
+val Int.Companion.random
+    get() = (Int.ZERO..Int.MAX_VALUE).random()
 
 /**
  * Double
@@ -40,3 +49,10 @@ val Long.Companion.ZERO
 
 val Long.Companion.FIVE
     get() = 5L
+
+/**
+ * Float
+ */
+
+val Float.Companion.ONE
+    get() = 1f

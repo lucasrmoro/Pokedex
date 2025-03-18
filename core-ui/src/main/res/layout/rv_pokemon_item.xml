@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/RoundedMaterialCardView"
+    android:layout_width="match_parent"
+    android:layout_height="180dp"
+    tools:cardBackgroundColor="@color/dark_450">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/clContent"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:foreground="?attr/selectableItemBackgroundBorderless"
+        android:padding="@dimen/small_dimen">
+
+        <TextView
+            android:id="@+id/tvIndex"
+            style="@style/TextViewWhiteBoldStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toStartOf="@id/ivImage"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="#0001" />
+
+        <TextView
+            android:id="@+id/tvName"
+            style="@style/TextViewWhiteBoldStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:maxLines="2"
+            android:textSize="@dimen/medium_text"
+            app:layout_constraintEnd_toStartOf="@id/ivImage"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvIndex"
+            tools:text="Charmander" />
+
+        <ImageView
+            android:id="@+id/ivImage"
+            android:layout_width="150dp"
+            android:layout_height="match_parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/btnFavorite"
+            android:layout_width="@dimen/biggest_dimen"
+            android:layout_height="@dimen/biggest_dimen"
+            android:background="?attr/selectableItemBackground"
+            android:padding="@dimen/tiny_dimen"
+            android:src="@drawable/ic_favorite"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:shapeAppearanceOverlay="@style/RoundedImageView"
+            tools:ignore="ContentDescription" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <com.google.android.material.progressindicator.LinearProgressIndicator
+        android:id="@+id/pbLoading"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:indeterminate="true"
+        app:indicatorColor="@color/green_300"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+</com.google.android.material.card.MaterialCardView>
