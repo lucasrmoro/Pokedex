@@ -11,7 +11,6 @@ import br.com.pokedex.core.ext.onSuccess
 import br.com.pokedex.core_ui.adapter.model.PokemonItem
 import br.com.pokedex.core_ui.components.recyclerView.PokedexEndlessRecyclerViewCallbacks
 import br.com.pokedex.pokemons.list.domain.useCase.getAll.GetAllPokemonsUseCase
-import kotlinx.coroutines.delay
 
 class PokemonsListViewModel(
     private val getAllPokemonsUseCase: GetAllPokemonsUseCase
@@ -39,7 +38,6 @@ class PokemonsListViewModel(
 
     fun loadItems() {
         launch {
-            delay(10000L)
             loadItems(Int.ONE)
         }
     }
