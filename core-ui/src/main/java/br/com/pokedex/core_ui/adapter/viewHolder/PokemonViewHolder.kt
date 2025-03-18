@@ -13,7 +13,7 @@ import br.com.pokedex.core_ui.ext.palette
 import com.bumptech.glide.Glide
 
 class PokemonViewHolder(
-    private val binding: RvPokemonItemBinding,
+    binding: RvPokemonItemBinding,
     private val callbacks: PokemonsListAdapterCallbacks?
 ) : BaseViewHolder<PokemonItem, RvPokemonItemBinding>(binding) {
 
@@ -36,9 +36,7 @@ class PokemonViewHolder(
         tvName.text = item.name
         Glide.with(context)
             .load(item.imageUrl)
-            .onComplete { drawable ->
-                drawable.setupColors()
-            }
+            .onComplete(::setupColors)
             .into(ivImage)
     }
 
@@ -46,16 +44,14 @@ class PokemonViewHolder(
         pbLoading.hide()
     }
 
-    private fun Drawable?.setupColors() = bind {
-        palette {
+    private fun setupColors(drawable: Drawable?) = bind {
+        drawable.palette {
             val defTextColor = context.getColor(R.color.white)
             tvIndex.setTextColor(dominantSwatch?.bodyTextColor ?: defTextColor)
             tvName.setTextColor(dominantSwatch?.titleTextColor ?: defTextColor)
-            clContent.background = (
-                createGradientDrawable(
-                    darkColor = dominantSwatch?.rgb ?: defaultBackgroundColor,
-                    lightColor = lightMutedSwatch?.rgb ?: defaultBackgroundColor
-                )
+            clContent.background = createGradientDrawable(
+                darkColor = dominantSwatch?.rgb ?: defaultBackgroundColor,
+                lightColor = lightMutedSwatch?.rgb ?: defaultBackgroundColor
             )
             dismissLoading()
         } ?: dismissLoading()
