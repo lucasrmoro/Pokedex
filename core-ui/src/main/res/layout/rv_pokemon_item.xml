@@ -5,6 +5,7 @@
     style="@style/RoundedMaterialCardView"
     android:layout_width="match_parent"
     android:layout_height="@dimen/pokemon_item_vh_height"
+    android:layout_marginHorizontal="@dimen/default_dimen"
     tools:cardBackgroundColor="@color/dark_450">
 
     <androidx.constraintlayout.widget.ConstraintLayout

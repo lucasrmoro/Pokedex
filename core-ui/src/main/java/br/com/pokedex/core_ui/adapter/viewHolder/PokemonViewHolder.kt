@@ -47,7 +47,10 @@ class PokemonViewHolder(
     private fun setupColors(drawable: Drawable?) = bind {
         drawable.palette {
             val defTextColor = context.getColor(R.color.white)
-            tvIndex.setTextColor(dominantSwatch?.bodyTextColor ?: defTextColor)
+            (dominantSwatch?.bodyTextColor ?: defTextColor).also {
+                tvIndex.setTextColor(it)
+                btnFavorite.setColorFilter(it)
+            }
             tvName.setTextColor(dominantSwatch?.titleTextColor ?: defTextColor)
             clContent.background = createGradientDrawable(
                 darkColor = dominantSwatch?.rgb ?: defaultBackgroundColor,
