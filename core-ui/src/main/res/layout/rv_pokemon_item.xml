@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     style="@style/RoundedMaterialCardView"
     android:layout_width="match_parent"
-    android:layout_height="180dp"
+    android:layout_height="@dimen/pokemon_item_vh_height"
     tools:cardBackgroundColor="@color/dark_450">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -39,7 +39,7 @@
 
         <ImageView
             android:id="@+id/ivImage"
-            android:layout_width="150dp"
+            android:layout_width="@dimen/pokemon_item_vh_image_width"
             android:layout_height="match_parent"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

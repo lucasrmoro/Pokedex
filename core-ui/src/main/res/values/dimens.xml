@@ -29,4 +29,8 @@
 
     <!-- Dialog -->
     <dimen name="dialog_image_size">100dp</dimen>
+
+    <!-- Pokemon Item -->
+    <dimen name="pokemon_item_vh_height">180dp</dimen>
+    <dimen name="pokemon_item_vh_image_width">150dp</dimen>
 </resources>
