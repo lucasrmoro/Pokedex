@@ -2,7 +2,7 @@ package br.com.pokedex.pokemons.list.presentation.fragment
 
 import br.com.pokedex.core_ui.base.fragment.BaseFragment
 import br.com.pokedex.pokemons.list.presentation.viewModel.FormViewModel
-import br.com.pokedex.pokemonsList.databinding.FragFormBinding
+import br.com.pokedex.pokemons.databinding.FragFormBinding
 
 internal class FormFragment private constructor() :
     BaseFragment<FragFormBinding, FormViewModel>(FragFormBinding::inflate) {

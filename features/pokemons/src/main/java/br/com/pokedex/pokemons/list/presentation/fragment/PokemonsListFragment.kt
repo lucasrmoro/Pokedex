@@ -5,7 +5,7 @@ import br.com.pokedex.core_ui.adapter.model.PokemonItem
 import br.com.pokedex.core_ui.base.fragment.BaseFragment
 import br.com.pokedex.core_ui.ext.showToast
 import br.com.pokedex.pokemons.list.presentation.viewModel.PokemonsListViewModel
-import br.com.pokedex.pokemonsList.databinding.FragPokemonsListBinding
+import br.com.pokedex.pokemons.databinding.FragPokemonsListBinding
 
 class PokemonsListFragment private constructor() :
     BaseFragment<FragPokemonsListBinding, PokemonsListViewModel>(FragPokemonsListBinding::inflate) {

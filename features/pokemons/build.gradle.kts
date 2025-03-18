@@ -5,7 +5,7 @@ plugins {
 }
 
 android {
-    namespace = "br.com.pokedex.pokemonsList"
+    namespace = "br.com.pokedex.pokemons"
 }
 
 dependencies {
