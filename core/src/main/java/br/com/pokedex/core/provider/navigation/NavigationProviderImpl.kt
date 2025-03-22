@@ -13,7 +13,7 @@ internal class NavigationProviderImpl(
     private val fragmentActivity: FragmentActivity
 ) : NavigationProvider {
 
-    private var _onCurrentFragmentChangeListener: ((currentFragment: Fragment?, isNotLastFragment: Boolean) -> Unit)? =
+    private var _onCurrentFragmentChangeListener: ((currentFragment: Fragment?) -> Unit)? =
         null
     private var oldBackStackEntryCount = Int.ONE
 
@@ -44,7 +44,7 @@ internal class NavigationProviderImpl(
         fragmentManager.popBackStack()
     }
 
-    override fun setOnCurrentFragmentChangeListener(block: (currentFragment: Fragment?, isNotLastFragment: Boolean) -> Unit) {
+    override fun setOnCurrentFragmentChangeListener(block: (currentFragment: Fragment?) -> Unit) {
         _onCurrentFragmentChangeListener = block
         setupOnBackStackChangedListener()
     }
@@ -101,10 +101,7 @@ internal class NavigationProviderImpl(
             fragmentManager.fragments.lastOrNull()?.let { lastFrag ->
                 oldBackStackEntryCount.also { oldCount ->
                     oldBackStackEntryCount = backStackEntryCount
-                    _onCurrentFragmentChangeListener?.invoke(
-                        lastFrag.takeIf { backStackEntryCount != oldCount },
-                        isLastFragment.not()
-                    )
+                    _onCurrentFragmentChangeListener?.invoke(lastFrag.takeIf { backStackEntryCount != oldCount })
                 }
             }
         }

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="pokemons" translatable="false">Pokemons</string>
+    <string name="items">Items</string>
+    <string name="moves">Moves</string>
+    <string name="types">Types</string>
+    <string name="favorites">Favorites</string>
+    <string name="settings">Settings</string>
+    <string name="search">Search</string>
+</resources>

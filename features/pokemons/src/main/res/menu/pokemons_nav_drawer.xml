@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:id="@+id/groupOne">
+        <item
+            android:id="@+id/pokemons"
+            android:icon="@drawable/ic_pokeball_outlined"
+            android:title="@string/pokemons" />
+        <item
+            android:id="@+id/items"
+            android:icon="@drawable/ic_backpack_outlined"
+            android:title="@string/items" />
+        <item
+            android:id="@+id/moves"
+            android:icon="@drawable/ic_punch_outlined"
+            android:title="@string/moves" />
+        <item
+            android:id="@+id/types"
+            android:icon="@drawable/ic_thunderbolt_outlined"
+            android:title="@string/types" />
+    </group>
+
+    <group android:id="@+id/groupTwo">
+        <item
+            android:id="@+id/favorites"
+            android:icon="@drawable/ic_favorite_outlined"
+            android:title="@string/favorites" />
+    </group>
+
+    <group android:id="@+id/groupThree">
+        <item
+            android:id="@+id/settings"
+            android:icon="@drawable/ic_settings"
+            android:title="@string/settings" />
+    </group>
+
+</menu>

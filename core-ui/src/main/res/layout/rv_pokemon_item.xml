@@ -52,7 +52,7 @@
             android:layout_height="@dimen/biggest_dimen"
             android:background="?attr/selectableItemBackground"
             android:padding="@dimen/tiny_dimen"
-            android:src="@drawable/ic_favorite"
+            android:src="@drawable/ic_favorite_outlined"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:shapeAppearanceOverlay="@style/RoundedImageView"

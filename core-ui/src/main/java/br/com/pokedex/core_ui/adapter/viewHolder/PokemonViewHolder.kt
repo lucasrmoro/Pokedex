@@ -21,7 +21,7 @@ class PokemonViewHolder(
 
     override fun onBind(item: PokemonItem) = bind {
         root.setCardBackgroundColor(defaultBackgroundColor)
-        root.setOnClickListener {
+        clContent.setOnClickListener {
             callbacks?.onClick(item)
         }
         btnFavorite.setOnClickListener {
@@ -30,7 +30,7 @@ class PokemonViewHolder(
         btnFavorite.contentDescription =
             context.getString(if (item.isFavorite) R.string.to_unfavorite else R.string.to_favorite)
         btnFavorite.setImageResource(
-            if (item.isFavorite) R.drawable.ic_favorite_filled else R.drawable.ic_favorite
+            if (item.isFavorite) R.drawable.ic_favorite_filled else R.drawable.ic_favorite_outlined
         )
         tvIndex.text = item.index
         tvName.text = item.name

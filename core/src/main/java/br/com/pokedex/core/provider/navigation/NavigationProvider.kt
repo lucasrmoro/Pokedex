@@ -17,6 +17,6 @@ interface NavigationProvider {
     )
 
     fun popBackStack()
-    fun setOnCurrentFragmentChangeListener(block: (currentFragment: Fragment?, isNotLastFragment: Boolean) -> Unit)
+    fun setOnCurrentFragmentChangeListener(block: (currentFragment: Fragment?) -> Unit)
 
 }
