@@ -7,7 +7,6 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
-import timber.log.Timber
 
 
 fun SearchView.setOnQueryTextChangeDebouncing(
@@ -20,7 +19,6 @@ fun SearchView.setOnQueryTextChangeDebouncing(
     var searchJob: Job? = null
     val search: (String, isTextSubmit: Boolean) -> Boolean = { text, isSubmit ->
         searchJob?.cancel()
-        Timber.d("isSearchViewOpening: $isSearchViewOpening, text: $text")
 
         when {
             isSearchViewOpening -> isSearchViewOpening = false
