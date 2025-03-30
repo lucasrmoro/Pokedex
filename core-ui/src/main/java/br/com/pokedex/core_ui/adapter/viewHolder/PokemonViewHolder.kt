@@ -11,6 +11,7 @@ import br.com.pokedex.core_ui.databinding.RvPokemonItemBinding
 import br.com.pokedex.core_ui.ext.onComplete
 import br.com.pokedex.core_ui.ext.palette
 import com.bumptech.glide.Glide
+import com.bumptech.glide.load.engine.DiskCacheStrategy
 
 class PokemonViewHolder(
     binding: RvPokemonItemBinding,
@@ -36,6 +37,7 @@ class PokemonViewHolder(
         tvName.text = item.name
         Glide.with(context)
             .load(item.imageUrl)
+            .diskCacheStrategy(DiskCacheStrategy.DATA)
             .onComplete(::setupColors)
             .into(ivImage)
     }

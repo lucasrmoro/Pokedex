@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!-- Pokemon List Screen -->
     <string name="pokemons" translatable="false">Pokemons</string>
     <string name="items">Items</string>
     <string name="moves">Moves</string>
@@ -7,4 +8,6 @@
     <string name="favorites">Favorites</string>
     <string name="settings">Settings</string>
     <string name="search">Search</string>
+    <string name="no_pokemon_found">No pokemon with name %1$s was found</string>
+
 </resources>

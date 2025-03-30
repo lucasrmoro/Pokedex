@@ -8,9 +8,8 @@ import kotlinx.coroutines.launch
 
 abstract class BaseViewModel : ViewModel() {
 
-    protected fun launch(block: suspend CoroutineScope.() -> Unit) {
+    protected fun launch(block: suspend CoroutineScope.() -> Unit) =
         viewModelScope.launch(block = block)
-    }
 
     override fun onCleared() {
         viewModelScope.cancel()

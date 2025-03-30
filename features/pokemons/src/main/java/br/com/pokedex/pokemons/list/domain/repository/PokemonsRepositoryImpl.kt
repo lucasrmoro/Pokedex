@@ -1,5 +1,6 @@
 package br.com.pokedex.pokemons.list.domain.repository
 
+import br.com.pokedex.core.ext.ONE
 import br.com.pokedex.core.ext.orZero
 import br.com.pokedex.core.ext.update
 import br.com.pokedex.domain.ext.execute
@@ -21,6 +22,16 @@ internal class PokemonsRepositoryImpl(
                 PokemonsList(
                     pagesCount = count.orZero(),
                     pokemons = pokemonMapper.toDomainModelList(pokemons.orEmpty())
+                )
+            }
+        }
+
+    override suspend fun getPokemonBy(name: String): Flow<PokemonsList> =
+        dispatcher.execute {
+            pokemonsRemoteDataSource.getPokemonDetails(name).update {
+                PokemonsList(
+                    pagesCount = Int.ONE,
+                    pokemons = listOf(pokemonMapper.toDomainModel(this))
                 )
             }
         }

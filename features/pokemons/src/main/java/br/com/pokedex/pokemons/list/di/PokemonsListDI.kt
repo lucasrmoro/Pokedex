@@ -9,6 +9,8 @@ import br.com.pokedex.pokemons.list.domain.mapper.PokemonMapper
 import br.com.pokedex.pokemons.list.domain.mapper.PokemonMapperImpl
 import br.com.pokedex.pokemons.list.domain.repository.PokemonsRepository
 import br.com.pokedex.pokemons.list.domain.repository.PokemonsRepositoryImpl
+import br.com.pokedex.pokemons.list.domain.useCase.get.GetPokemonsByNameUseCase
+import br.com.pokedex.pokemons.list.domain.useCase.get.GetPokemonsByNameUseCaseImpl
 import br.com.pokedex.pokemons.list.domain.useCase.getAll.GetAllPokemonsUseCase
 import br.com.pokedex.pokemons.list.domain.useCase.getAll.GetAllPokemonsUseCaseImpl
 import br.com.pokedex.pokemons.list.presentation.viewModel.FormViewModel
@@ -39,10 +41,17 @@ private val domainModule = module {
 
     // Use Case
     single<GetAllPokemonsUseCase> { GetAllPokemonsUseCaseImpl(pokemonsRepository = get()) }
+    single<GetPokemonsByNameUseCase> { GetPokemonsByNameUseCaseImpl(pokemonsRepository = get()) }
 }
 
 private val viewModelModule = module {
-    viewModel { PokemonsListViewModel(getAllPokemonsUseCase = get()) }
+    viewModel {
+        PokemonsListViewModel(
+            resourcesProvider = get(),
+            getAllPokemonsUseCase = get(),
+            getPokemonsByNameUseCase = get()
+        )
+    }
     viewModel { ListViewModel(fooRepository = get()) }
     viewModel { FormViewModel(fooRepository = get()) }
 }

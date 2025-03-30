@@ -10,10 +10,15 @@ import br.com.pokedex.core.ext.onError
 import br.com.pokedex.core.ext.onSuccess
 import br.com.pokedex.core_ui.adapter.model.PokemonItem
 import br.com.pokedex.core_ui.components.recyclerView.PokedexEndlessRecyclerViewCallbacks
+import br.com.pokedex.core_ui.provider.ResourcesProvider
+import br.com.pokedex.pokemons.R
+import br.com.pokedex.pokemons.list.domain.useCase.get.GetPokemonsByNameUseCase
 import br.com.pokedex.pokemons.list.domain.useCase.getAll.GetAllPokemonsUseCase
 
 class PokemonsListViewModel(
-    private val getAllPokemonsUseCase: GetAllPokemonsUseCase
+    private val resourcesProvider: ResourcesProvider,
+    private val getAllPokemonsUseCase: GetAllPokemonsUseCase,
+    private val getPokemonsByNameUseCase: GetPokemonsByNameUseCase,
 ) : BaseViewModel(), PokedexEndlessRecyclerViewCallbacks {
 
     private val _onFetchPokemons = MutableLiveData<Pair<List<PokemonItem>?, String?>>()
@@ -39,6 +44,21 @@ class PokemonsListViewModel(
     fun loadItems() {
         launch {
             loadItems(Int.ONE)
+        }
+    }
+
+    fun searchPokemon(name: String?) {
+        launch {
+            getPokemonsByNameUseCase(name.orEmpty()).onError {
+                _onFetchPokemons.postValue(
+                    _onFetchPokemons.value?.first to resourcesProvider.getString(
+                        R.string.no_pokemon_found, name.orEmpty()
+                    )
+                )
+            }.onSuccess {
+                _pagesCount = this.pagesCount
+                _onFetchPokemons.postValue(this.pokemons to null)
+            }
         }
     }
 }
