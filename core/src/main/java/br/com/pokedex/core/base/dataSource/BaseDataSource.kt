@@ -5,7 +5,7 @@ import kotlinx.coroutines.flow.flow
 
 abstract class BaseDataSource {
 
-    suspend fun <T> call(block: suspend FlowCollector<T>.() -> T) = flow {
+    protected fun <T> call(block: suspend FlowCollector<T>.() -> T) = flow {
         emit(block())
     }
 
