@@ -8,7 +8,7 @@ import androidx.annotation.StringRes
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.LifecycleOwner
 import br.com.pokedex.core.ext.showToast
-import br.com.pokedex.core_ui.base.activity.BaseActivity
+import br.com.pokedex.core.base.activity.BaseActivity
 import br.com.pokedex.core_ui.base.fragment.BaseFragment
 import kotlin.reflect.KClass
 

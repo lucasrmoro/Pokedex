@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ProgressBar xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/pbLoading"
+    android:layout_width="@dimen/huge_dimen"
+    android:layout_height="@dimen/huge_dimen"
+    android:indeterminateDrawable="@drawable/ic_pokeball_spinner"
+    android:indeterminateOnly="true"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent" />

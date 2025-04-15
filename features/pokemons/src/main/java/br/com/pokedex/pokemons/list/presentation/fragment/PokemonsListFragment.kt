@@ -21,6 +21,7 @@ class PokemonsListFragment private constructor() :
 
     private val pokemonsAdapter = PokedexGenericAdapter()
 
+    override val showBackButton: Boolean = false
     override fun toolbarTitle(): Int = R.string.pokemons
 
     override fun onHomeMenuItemClicked(): Boolean {

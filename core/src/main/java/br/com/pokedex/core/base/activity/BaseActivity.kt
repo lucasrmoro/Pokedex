@@ -1,4 +1,4 @@
-package br.com.pokedex.core_ui.base.activity
+package br.com.pokedex.core.base.activity
 
 import android.graphics.Rect
 import android.os.Bundle
@@ -8,11 +8,11 @@ import androidx.annotation.CallSuper
 import androidx.appcompat.app.AppCompatActivity
 import androidx.viewbinding.ViewBinding
 import br.com.pokedex.core.base.viewModel.BaseViewModel
+import br.com.pokedex.core.ext.getViewModelClass
 import br.com.pokedex.core.ext.hideKeyboard
 import br.com.pokedex.core.provider.appSession.AppSessionProvider
 import br.com.pokedex.core.provider.network.provider.NetworkConnectivityProvider
 import br.com.pokedex.core.provider.permission.PermissionsProvider
-import br.com.pokedex.core_ui.ext.getViewModelClass
 import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.viewModelForClass
 import org.koin.core.parameter.parametersOf

@@ -11,15 +11,15 @@ import androidx.appcompat.app.ActionBar
 import androidx.core.view.GravityCompat
 import androidx.fragment.app.Fragment
 import androidx.viewbinding.ViewBinding
-import br.com.pokedex.core.R
 import br.com.pokedex.core.base.viewModel.BaseViewModel
+import br.com.pokedex.core_ui.R
 import br.com.pokedex.core_ui.base.activity.BaseContainerActivity
-import br.com.pokedex.core_ui.components.PokedexToolbar
+import br.com.pokedex.core_ui.base.activity.BaseNavDrawerContainerActivity
 import br.com.pokedex.core_ui.ext.getViewModelClass
 import br.com.pokedex.core_ui.ext.setHomeAsUpIndicator
 import com.google.android.material.navigation.NavigationView
 import org.koin.androidx.viewmodel.ext.android.viewModelForClass
-import br.com.pokedex.core_ui.R as coreUiR
+import br.com.pokedex.core.R as coreR
 
 abstract class BaseFragment<VB : ViewBinding, VM : BaseViewModel>(
     private val inflater: (LayoutInflater, ViewGroup?, Boolean) -> VB
@@ -27,6 +27,8 @@ abstract class BaseFragment<VB : ViewBinding, VM : BaseViewModel>(
 
     private val baseContainerActivity: BaseContainerActivity<*>?
         get() = activity as? BaseContainerActivity<*>
+    private val baseNavDrawerContainerActivity: BaseNavDrawerContainerActivity<*>?
+        get() = activity as? BaseNavDrawerContainerActivity<*>
 
     private var _binding: VB? = null
     protected val binding
@@ -34,14 +36,11 @@ abstract class BaseFragment<VB : ViewBinding, VM : BaseViewModel>(
 
     protected val viewModel by viewModelForClass(getViewModelClass())
     protected val defaultErrorMessage
-        get() = getString(R.string.an_error_occurred_try_again_later)
+        get() = getString(coreR.string.an_error_occurred_try_again_later)
     protected val activityNavigationView: NavigationView?
-        get() = baseContainerActivity?.navigationView
+        get() = baseNavDrawerContainerActivity?.navigationView
     protected val activityActionBar: ActionBar?
         get() = baseContainerActivity?.supportActionBar
-    val toolbar: PokedexToolbar?
-        get() = baseContainerActivity?.toolbar
-
 
     open val showBackButton: Boolean = true
     protected abstract fun setupViews()
@@ -58,7 +57,7 @@ abstract class BaseFragment<VB : ViewBinding, VM : BaseViewModel>(
             title = toolbarTitle()?.let(::getString).orEmpty()
             if (showBackButton) {
                 setDisplayShowHomeEnabled(true)
-                setHomeAsUpIndicator(context, br.com.pokedex.core_ui.R.drawable.ic_back_arrow)
+                setHomeAsUpIndicator(context, R.drawable.ic_back_arrow)
             }
         }
     }
@@ -73,7 +72,7 @@ abstract class BaseFragment<VB : ViewBinding, VM : BaseViewModel>(
         savedInstanceState: Bundle?
     ): View? {
         _binding = inflater(inflater, container, false)
-        binding.root.setBackgroundColor(requireContext().getColor(coreUiR.color.dark_75))
+        binding.root.setBackgroundColor(requireContext().getColor(R.color.dark_75))
         return binding.root
     }
 
@@ -110,10 +109,10 @@ abstract class BaseFragment<VB : ViewBinding, VM : BaseViewModel>(
     }
 
     protected fun showNavDrawer() {
-        baseContainerActivity?.drawerLayout?.openDrawer(GravityCompat.START)
+        baseNavDrawerContainerActivity?.drawerLayout?.openDrawer(GravityCompat.START)
     }
 
     protected fun closeNavDrawer() {
-        baseContainerActivity?.drawerLayout?.closeDrawer(GravityCompat.START)
+        baseNavDrawerContainerActivity?.drawerLayout?.closeDrawer(GravityCompat.START)
     }
 }
