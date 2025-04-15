@@ -1,6 +1,5 @@
 package br.com.pokedex.core_ui.ext
 
-import android.graphics.drawable.Drawable
 import com.bumptech.glide.RequestBuilder
 import com.bumptech.glide.load.DataSource
 import com.bumptech.glide.load.engine.GlideException
