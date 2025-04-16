@@ -5,3 +5,7 @@ Pokedex App using the latest techs; WIP
 - DI with Koin
 - Retrofit
 - Coroutines
+
+Gradle task to build an APK
+
+./gradlew bundle<Flavor><BuildType>UniversalApk
