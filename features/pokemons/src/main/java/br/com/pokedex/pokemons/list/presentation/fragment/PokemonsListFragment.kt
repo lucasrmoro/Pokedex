@@ -32,24 +32,8 @@ class PokemonsListFragment private constructor() :
     override fun setupViews() {
         setupListeners()
         setupObservers()
-        setMenu(R.menu.pokemons_toolbar_menu, viewLifecycleOwner) { menuItem ->
-            when (menuItem.itemId) {
-                R.id.search -> {
-                    (menuItem.actionView as SearchView).setOnQueryTextChangeDebouncing(
-                        onSubmit = ::onSearchQueryChange,
-                        onTextChange = ::onSearchQueryChange
-                    )
-                    true
-                }
-
-                else -> false
-            }
-        }
-        activityNavigationView?.inflateMenu(R.menu.pokemons_nav_drawer)
-        activityNavigationView?.setNavigationItemSelectedListener {
-            closeNavDrawer()
-            true
-        }
+        setupToolbarMenu()
+        setupNavigationView()
     }
 
     override fun onFragmentVisible() {
@@ -76,6 +60,30 @@ class PokemonsListFragment private constructor() :
             recyclerView.onLoadItemsError()
         }
         recyclerView.onLoadItemsSuccess(result.first.orEmpty())
+    }
+
+    private fun setupToolbarMenu() {
+        setMenu(R.menu.pokemons_toolbar_menu, viewLifecycleOwner) { menuItem ->
+            when (menuItem.itemId) {
+                R.id.search -> {
+                    (menuItem.actionView as SearchView).setOnQueryTextChangeDebouncing(
+                        onSubmit = ::onSearchQueryChange,
+                        onTextChange = ::onSearchQueryChange
+                    )
+                    true
+                }
+
+                else -> false
+            }
+        }
+    }
+
+    private fun setupNavigationView() {
+        activityNavigationView?.inflateMenu(R.menu.pokemons_nav_drawer)
+        activityNavigationView?.setNavigationItemSelectedListener {
+            closeNavDrawer()
+            true
+        }
     }
 
     private fun onSearchQueryChange(searchView: SearchView, query: String) = with(binding) {
