@@ -1,4 +1,4 @@
-name: Generated APK AAB (Upload - Create Artifact To Github Action)
+name: Generate APK (dev-debug)
 
 env:
   main_project_module: app
@@ -42,3 +42,9 @@ jobs:
 
       - name: Build APK dev debug
         run: ./gradlew :app:packageDevDebugUniversalApk
+
+      - name: Upload APK - ${{ env.repository_name }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ env.date_today }} - ${{ env.repository_name }} - APK generated
+          path: ${{ env.main_project_module }}/build/outputs/apk/debug/
