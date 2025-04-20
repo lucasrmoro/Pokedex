@@ -8,4 +8,4 @@ Pokedex App using the latest techs; WIP
 
 Gradle task to build an APK
 
-./gradlew :app:package<Flavor><BuildType>UniversalApk
+./gradlew :app:package'Flavor''BuildType'UniversalApk
