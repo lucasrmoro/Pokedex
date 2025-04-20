@@ -88,6 +88,7 @@ abstract class BasePlugin : Plugin<Project> {
                 }
                 if (this is ApplicationExtension || this is LibraryExtension) {
                     isMinifyEnabled = false
+                    isShrinkResources = false
                 }
                 isDebuggable = true
             }
@@ -95,6 +96,7 @@ abstract class BasePlugin : Plugin<Project> {
             getByName(BuildTypes.RELEASE) {
                 if (this is ApplicationExtension || this is LibraryExtension) {
                     isMinifyEnabled = true
+                    isShrinkResources = true
                 }
                 if (this is ApplicationExtension) {
                     proguardFiles(
