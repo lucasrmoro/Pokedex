@@ -34,9 +34,6 @@ jobs:
       - name: Grant execution permission for gradlew
         run: chmod +x ./gradlew
 
-      - name: Run unit tests
-        run: ./gradlew clean testDevDebugUnitTest
-
       - name: Build gradle project
         run: ./gradlew build
 
@@ -50,10 +47,10 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: ${{ env.date_today }} - ${{ env.repository_name }} - AAB generated
-          path: ${{ env.main_project_module }}/prd/release/
+          path: ${{ env.main_project_module }}/build/outputs/bundle/release/
 
       - name: Upload APK artifact - ${{ env.repository_name }}
         uses: actions/upload-artifact@v4
         with:
           name: ${{ env.date_today }} - ${{ env.repository_name }} - APK generated
-          path: ${{ env.main_project_module }}/prd/release/
+          path: ${{ env.main_project_module }}/build/outputs/apk/release/
