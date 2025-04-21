@@ -1,0 +1,50 @@
+name: Generate APK (dev-debug)
+
+env:
+  main_project_module: app
+
+on:
+  push:
+    branches:
+      - 'develop'
+
+  # Allows to run this workflow manually from Actions tab
+  workflow_dispatch:
+
+jobs:
+  apk_dev_debug_build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set current date as env variable
+        run: echo "date_today=$(date +'%Y-%m-%d')" >> $GITHUB_ENV
+
+      - name: Set repository name as env variable
+        run: echo "repository_name=$(echo '${{ github.repository }}' | awk -F '/' '{print $2}')" >> $GITHUB_ENV
+
+      - name: Setup JDK 17
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: 17
+          cache: 'gradle'
+
+      - name: Grant execution permission for gradlew
+        run: chmod +x ./gradlew
+
+      - name: Run unit tests
+        run: ./gradlew clean testDevDebugUnitTest
+
+      - name: Build gradle project
+        run: ./gradlew build
+
+      - name: Build APK dev debug
+        run: ./gradlew :app:packageDevDebugUniversalApk
+
+      - name: Upload APK artifact- ${{ env.repository_name }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ env.date_today }} - ${{ env.repository_name }} - APK generated
+          path: ${{ env.main_project_module }}/build/outputs/apk_from_bundle/devDebug
