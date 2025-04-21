@@ -1,4 +1,4 @@
-name: Generate APK (dev-debug)
+name: Generate signed AAB (prd-release)
 
 env:
   main_project_module: app
@@ -6,7 +6,7 @@ env:
 on:
   push:
     branches:
-      - 'develop'
+      - 'main'
 
   # Allows to run this workflow manually from Actions tab
   workflow_dispatch:
@@ -40,11 +40,20 @@ jobs:
       - name: Build gradle project
         run: ./gradlew build
 
-      - name: Build APK dev debug
-        run: ./gradlew :app:packageDevDebugUniversalApk
+      - name: Build signed AAB prd release
+        run: ./gradlew ${{ env.main_project_module }}:bundleRelease
 
-      - name: Upload APK artifact- ${{ env.repository_name }}
+      - name: Build signed APK prd release
+        run: ./gradlew assemble
+
+      - name: Upload AAB artifact - ${{ env.repository_name }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ env.date_today }} - ${{ env.repository_name }} - AAB generated
+          path: ${{ env.main_project_module }}/prd/release/
+
+      - name: Upload APK artifact - ${{ env.repository_name }}
         uses: actions/upload-artifact@v4
         with:
           name: ${{ env.date_today }} - ${{ env.repository_name }} - APK generated
-          path: ${{ env.main_project_module }}/build/outputs/apk_from_bundle/devDebug
+          path: ${{ env.main_project_module }}/prd/release/
