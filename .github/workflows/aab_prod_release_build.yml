@@ -40,17 +40,17 @@ jobs:
       - name: Build signed AAB prd release
         run: ./gradlew ${{ env.main_project_module }}:bundleRelease
 
-      - name: Build signed APK prd release
+      - name: Build APK prd release
         run: ./gradlew assemble
 
       - name: Upload AAB artifact - ${{ env.repository_name }}
         uses: actions/upload-artifact@v4
         with:
-          name: ${{ env.date_today }} - ${{ env.repository_name }} - AAB generated
-          path: ${{ env.main_project_module }}/build/outputs/bundle/release/
+          name: ${{ env.date_today }} - ${{ env.repository_name }} - AAB signed generated
+          path: ${{ env.main_project_module }}/build/outputs/bundle/prdRelease/
 
       - name: Upload APK artifact - ${{ env.repository_name }}
         uses: actions/upload-artifact@v4
         with:
           name: ${{ env.date_today }} - ${{ env.repository_name }} - APK generated
-          path: ${{ env.main_project_module }}/build/outputs/apk/release/
+          path: ${{ env.main_project_module }}/build/outputs/apk/prd/release/
