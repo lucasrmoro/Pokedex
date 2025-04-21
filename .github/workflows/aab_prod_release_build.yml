@@ -39,7 +39,7 @@ jobs:
 
       - name: Decode Keystore base 64
         run: |
-          echo KEYSTORE_BASE64 > keystore-b64.txt
+          echo $KEYSTORE_BASE64 > keystore-b64.txt
           base64 -d keystore-b64.txt > $STORE_FILE_PATH
 
       - name: Setup signing configurations
