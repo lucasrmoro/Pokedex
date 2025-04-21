@@ -15,6 +15,12 @@ jobs:
   aab_prod_release_build:
     runs-on: ubuntu-latest
 
+    env:
+      STORE_FILE: /tmp/keystore.jks
+      STORE_PASSWORD: ${{ secrets.KEYSTORE_PASSWORD }}
+      KEY_ALIAS: ${{ secrets.KEY_ALIAS }}
+      KEY_PASSWORD: ${{ secrets.KEY_PASSWORD }}
+
     steps:
       - uses: actions/checkout@v4
 
@@ -34,6 +40,15 @@ jobs:
       - name: Grant execution permission for gradlew
         run: chmod +x ./gradlew
 
+      - name: Print environment variables for debugging
+        run: |
+          echo "STORE_FILE: $STORE_FILE"
+          echo "STORE_PASSWORD: $STORE_PASSWORD"
+          echo "KEY_ALIAS: $KEY_ALIAS"
+          echo "KEY_PASSWORD: $KEY_PASSWORD"
+          echo "date_today: $date_today"
+          echo "repository_name: $repository_name"
+
       - name: Decode and save keystore from base64
         run: echo "${{ secrets.KEYSTORE_BASE64 }}" | base64 --decode > /tmp/keystore.jks
 
@@ -43,14 +58,6 @@ jobs:
           echo "storePassword=${{ secrets.KEYSTORE_PASSWORD }}" >> $GITHUB_ENV
           echo "keyAlias=${{ secrets.KEY_ALIAS }}" >> $GITHUB_ENV
           echo "keyPassword=${{ secrets.KEY_PASSWORD }}" >> $GITHUB_ENV
-
-      - name: Debug Signing Configuration
-        run: |
-          echo "storeFile: $storeFile"
-          echo "storePassword: $storePassword"
-          echo "keyAlias: $keyAlias"
-          echo "keyPassword: $keyPassword"
-
 
       - name: Build gradle project
         run: ./gradlew build
