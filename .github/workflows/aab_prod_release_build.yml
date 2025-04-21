@@ -38,7 +38,8 @@ jobs:
 
       - name: Decode keystore and export signing variables
         run: |
-          echo ${{ secrets.KEYSTORE_BASE64 }} | base64 -d > /tmp/keystore.jks
+          echo "${{ secrets.KEYSTORE_BASE64 }}" > /tmp/keystore_b64.txt
+          base64 -d -i /tmp/keystore_b64.txt > /tmp/keystore.jks
 
           echo "KEYSTORE_FILE_NAME=/tmp/keystore.jks" >> $GITHUB_ENV
           echo "KEYSTORE_FILE_PASSWORD=${{ secrets.KEYSTORE_PASSWORD }}" >> $GITHUB_ENV
