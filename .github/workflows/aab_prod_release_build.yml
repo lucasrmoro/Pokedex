@@ -36,15 +36,6 @@ jobs:
       - name: Grant execution permission for gradlew
         run: chmod +x ./gradlew
 
-      - name: Store base64 to file for inspection
-        run: echo "${{ secrets.KEYSTORE_BASE64 }}" > keystore-base64.txt
-
-      - name: Upload Keystore base64 Artifact (for Debugging)
-        uses: actions/upload-artifact@v4
-        with:
-            name: keystore_base64
-            path: keystore-base64.txt
-
       - name: Decode keystore and export signing variables
         run: |
           echo ${{ secrets.KEYSTORE_BASE64 }} | base64 -d > /tmp/keystore.jks
