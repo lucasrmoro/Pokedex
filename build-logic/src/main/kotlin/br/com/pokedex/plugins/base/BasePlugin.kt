@@ -103,7 +103,7 @@ abstract class BasePlugin : Plugin<Project> {
                 if (this is ApplicationExtension) {
                     signingConfigs {
                         create(BuildTypes.RELEASE) {
-                            storeFile = File(System.getenv(Signing.KEYSTORE_FILE_NAME))
+                            storeFile = File(Signing.KEYSTORE_FILE_NAME)
                             storePassword = System.getenv(Signing.KEYSTORE_FILE_PASSWORD)
                             keyAlias = System.getenv(Signing.KEY_ALIAS)
                             keyPassword = System.getenv(Signing.KEY_PASSWORD)

@@ -47,7 +47,7 @@ internal object ConfigField {
 }
 
 internal object Signing {
-    const val KEYSTORE_FILE_NAME = "KEYSTORE_FILE_NAME"
+    const val KEYSTORE_FILE_NAME = "keystore.jks"
     const val KEYSTORE_FILE_PASSWORD = "KEYSTORE_FILE_PASSWORD"
     const val KEY_ALIAS = "KEY_ALIAS"
     const val KEY_PASSWORD = "KEY_PASSWORD"
