@@ -39,10 +39,14 @@ jobs:
 
       - name: Setup signing configurations
         run: |
-          echo "storeFile=/tmp/keystore.jks" >> $GITHUB_ENV
-          echo "storePassword=${{ secrets.KEYSTORE_PASSWORD }}" >> $GITHUB_ENV
-          echo "keyAlias=${{ secrets.KEY_ALIAS }}" >> $GITHUB_ENV
-          echo "keyPassword=${{ secrets.KEY_PASSWORD }}" >> $GITHUB_ENV
+          export STORE_FILE=/tmp/keystore.jks
+          export STORE_PASSWORD="${{ secrets.KEYSTORE_PASSWORD }}"
+          export KEY_ALIAS="${{ secrets.KEY_ALIAS }}"
+          export KEY_PASSWORD="${{ secrets.KEY_PASSWORD }}"
+          echo "storeFile=${STORE_FILE}" >> $GITHUB_ENV
+          echo "storePassword=${STORE_PASSWORD}" >> $GITHUB_ENV
+          echo "keyAlias=${KEY_ALIAS}" >> $GITHUB_ENV
+          echo "keyPassword=${KEY_PASSWORD}" >> $GITHUB_ENV
 
       - name: Build gradle project
         run: ./gradlew build
