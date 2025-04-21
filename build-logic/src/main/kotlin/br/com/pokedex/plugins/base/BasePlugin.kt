@@ -94,6 +94,8 @@ abstract class BasePlugin : Plugin<Project> {
             }
 
             getByName(BuildTypes.RELEASE) {
+                signingConfig = signingConfigs.getByName(BuildTypes.RELEASE)
+
                 if (this is ApplicationExtension || this is LibraryExtension) {
                     isMinifyEnabled = true
                     isShrinkResources = true

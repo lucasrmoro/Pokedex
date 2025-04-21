@@ -34,6 +34,16 @@ jobs:
       - name: Grant execution permission for gradlew
         run: chmod +x ./gradlew
 
+      - name: Decode and save keystore from base64
+        run: echo "${{ secrets.KEYSTORE_BASE64 }}" | base64 --decode > /tmp/keystore.jks
+
+      - name: Setup signing configurations
+        run: |
+          echo "storeFile=/tmp/keystore.jks" >> $GITHUB_ENV
+          echo "storePassword=${{ secrets.KEYSTORE_PASSWORD }}" >> $GITHUB_ENV
+          echo "keyAlias=${{ secrets.KEY_ALIAS }}" >> $GITHUB_ENV
+          echo "keyPassword=${{ secrets.KEY_PASSWORD }}" >> $GITHUB_ENV
+
       - name: Build gradle project
         run: ./gradlew build
 
