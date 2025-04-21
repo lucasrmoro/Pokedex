@@ -1,10 +1,7 @@
 package br.com.pokedex.plugins
 
-import br.com.pokedex.BuildTypes
 import br.com.pokedex.Plugins
 import br.com.pokedex.ProjectConfig
-import br.com.pokedex.Signing
-import java.io.File
 import br.com.pokedex.ext.implementation
 import br.com.pokedex.modules.Modules
 import br.com.pokedex.plugins.base.BasePlugin
@@ -31,14 +28,7 @@ class AndroidAppPlugin : BasePlugin() {
 
     private fun Project.setupConfig() = extensions.configure<ApplicationExtension> {
         setupProjectConfig(this)
-        signingConfigs {
-            create(BuildTypes.RELEASE) {
-                storeFile = File(System.getenv(Signing.KEYSTORE_FILE_NAME))
-                storePassword = System.getenv(Signing.KEYSTORE_FILE_PASSWORD)
-                keyAlias = System.getenv(Signing.KEY_ALIAS)
-                keyPassword = System.getenv(Signing.KEY_PASSWORD)
-            }
-        }
+
         defaultConfig.apply {
             applicationId = ProjectConfig.APP_ID
             targetSdk = ProjectConfig.TARGET_SDK
