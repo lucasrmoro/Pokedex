@@ -3,9 +3,7 @@ name: Generate signed AAB (prd-release)
 env:
   main_project_module: app
 
-on:
-  # Allows to run this workflow manually from Actions tab
-  workflow_dispatch:
+on: workflow_dispatch
 
 jobs:
   aab_prod_release_build:
@@ -21,7 +19,7 @@ jobs:
       - uses: actions/checkout@v4
 
       - name: Set current date as env variable
-        run: echo "date_today=$(date +'%Y-%m-%d')" >> $GITHUB_ENV
+        run: echo "date_today=$(date +'%Y_%m_%d')" >> $GITHUB_ENV
 
       - name: Set repository name as env variable
         run: echo "repository_name=$(echo '${{ github.repository }}' | awk -F '/' '{print $2}')" >> $GITHUB_ENV
@@ -36,7 +34,7 @@ jobs:
       - name: Grant execution permission for gradlew
         run: chmod +x ./gradlew
 
-      - name: Decode keystore and export signing variables
+      - name: Decode keystore base64
         run: |
           echo "$KEYSTORE_BASE64" | base64 -d > /tmp/keystore.jks
 
@@ -44,16 +42,16 @@ jobs:
         run: ./gradlew ${{ env.main_project_module }}:bundleRelease
 
       - name: Build APK prd release
-        run: ./gradlew assemble
+        run: ./gradlew assembleRelease
 
       - name: Upload AAB artifact - ${{ env.repository_name }}
         uses: actions/upload-artifact@v4
         with:
-          name: ${{ env.date_today }} - ${{ env.repository_name }} - AAB signed generated
+          name: ${{ env.date_today }}_${{ env.repository_name }}_prod_aab
           path: ${{ env.main_project_module }}/build/outputs/bundle/prdRelease/
 
       - name: Upload APK artifact - ${{ env.repository_name }}
         uses: actions/upload-artifact@v4
         with:
-          name: ${{ env.date_today }} - ${{ env.repository_name }} - APK generated
+          name: ${{ env.date_today }}_${{ env.repository_name }}_prod_apk
           path: ${{ env.main_project_module }}/build/outputs/apk/prd/release/
