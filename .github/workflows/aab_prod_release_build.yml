@@ -44,7 +44,7 @@ jobs:
       - name: Build APK prod release
         run: |
           ./gradlew assembleRelease
-          jarsigner -verbose -keystore $KEYSTORE_PATH -storepass "$KEYSTORE_FILE_PASSWORD" -keypass "$KEY_PASSWORD" -signedjar app/build/outputs/apk/prd/release/app-prd-release-unsigned.apk my_app_name
+          jarsigner -verbose -keystore "$KEYSTORE_PATH" -storepass "$KEYSTORE_FILE_PASSWORD" -keypass "$KEY_PASSWORD" -signedjar app-prd-release-unsigned.apk app-prd-release-signed.apk "$KEY_ALIAS"
 
       - name: Build signed AAB prod release
         run: ./gradlew assembleRelease
