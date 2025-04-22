@@ -33,9 +33,9 @@ jobs:
 
       - name: Setup env variables
         run: |
-          echo KEYSTORE_FILE_PASSWORD=${{ secrets.KEYSTORE_FILE_PASSWORD }} >> $GITHUB_ENV
-          echo KEY_ALIAS=${{ secrets.KEY_ALIAS }} >> $GITHUB_ENV
-          echo KEY_PASSWORD=${{ secrets.KEY_PASSWORD }} >> $GITHUB_ENV
+          echo "KEYSTORE_FILE_PASSWORD=${{ secrets.KEYSTORE_FILE_PASSWORD }}" >> $GITHUB_ENV
+          echo "KEY_ALIAS=${{ secrets.KEY_ALIAS }}" >> $GITHUB_ENV
+          echo "KEY_PASSWORD=${{ secrets.KEY_PASSWORD }}" >> $GITHUB_ENV
 
       - name: Build signed AAB prod release
         run: ./gradlew bundleRelease
