@@ -41,13 +41,13 @@ jobs:
           echo "KEY_ALIAS=$KEY_ALIAS" >> $GITHUB_ENV
           echo "KEY_PASSWORD=$KEY_PASSWORD" >> $GITHUB_ENV
 
-      - name: Build signed AAB prod release
-        run: ./gradlew assembleRelease
-
       - name: Build APK prod release
         run: |
           ./gradlew assembleRelease
           jarsigner -verbose -keystore $KEYSTORE_PATH -storepass "$KEYSTORE_FILE_PASSWORD" -keypass "$KEY_PASSWORD" -signedjar app/build/outputs/apk/prd/release/app-prd-release-unsigned.apk my_app_name
+
+      - name: Build signed AAB prod release
+        run: ./gradlew assembleRelease
 
       - name: Upload AAB artifact
         uses: actions/upload-artifact@v4
