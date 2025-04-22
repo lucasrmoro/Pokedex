@@ -7,6 +7,7 @@ jobs:
     runs-on: ubuntu-latest
 
     env:
+      KEYSTORE_PATH: /tmp/keystore.jks
       KEYSTORE_BASE64: ${{ secrets.KEYSTORE_BASE64 }}
       KEYSTORE_FILE_PASSWORD: ${{ secrets.KEYSTORE_FILE_PASSWORD }}
       KEY_ALIAS: ${{ secrets.KEY_ALIAS }}
@@ -32,7 +33,7 @@ jobs:
         run: chmod +x ./gradlew
 
       - name: Decode keystore base64
-        run: echo "$KEYSTORE_BASE64" | base64 -d > /tmp/keystore.jks
+        run: echo "$KEYSTORE_BASE64" | base64 -d > $KEYSTORE_PATH
 
       - name: Setup env variables
         run: |
@@ -41,10 +42,12 @@ jobs:
           echo "KEY_PASSWORD=$KEY_PASSWORD" >> $GITHUB_ENV
 
       - name: Build signed AAB prod release
-        run: ./gradlew bundleRelease
+        run: ./gradlew assembleRelease
 
       - name: Build APK prod release
-        run: ./gradlew assembleRelease
+        run: |
+          ./gradlew assembleRelease
+          jarsigner -verbose -keystore /tmp/keystore.jks -storepass "$KEYSTORE_FILE_PASSWORD" -keypass "$KEY_PASSWORD" -signedjar app/build/outputs/apk/prd/release/app-release-signed.apk app/build/outputs/apk/prd/release/app-release-unsigned.apk "$KEY_ALIAS"
 
       - name: Upload AAB artifact
         uses: actions/upload-artifact@v4
