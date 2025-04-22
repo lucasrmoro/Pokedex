@@ -31,18 +31,16 @@ jobs:
       - name: Decode keystore base64
         run: echo "$KEYSTORE_BASE64" | base64 -d > /tmp/keystore.jks
 
+      - name: Setup env variables
+        run: |
+          export KEYSTORE_FILE_PASSWORD="${{ secrets.KEYSTORE_FILE_PASSWORD }}"
+          export KEY_ALIAS="${{ secrets.KEY_ALIAS }}"
+          export KEY_PASSWORD="${{ secrets.KEY_PASSWORD }}"
+
       - name: Build signed AAB prod release
-        env:
-          KEYSTORE_FILE_PASSWORD: ${{ secrets.KEYSTORE_FILE_PASSWORD }}
-          KEY_ALIAS: ${{ secrets.KEY_ALIAS }}
-          KEY_PASSWORD: ${{ secrets.KEY_PASSWORD }}
         run: ./gradlew bundleRelease
 
       - name: Build APK prod release
-        env:
-          KEYSTORE_FILE_PASSWORD: ${{ secrets.KEYSTORE_FILE_PASSWORD }}
-          KEY_ALIAS: ${{ secrets.KEY_ALIAS }}
-          KEY_PASSWORD: ${{ secrets.KEY_PASSWORD }}
         run: ./gradlew assembleRelease
 
       - name: Upload AAB artifact
