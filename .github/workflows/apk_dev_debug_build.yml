@@ -1,8 +1,5 @@
 name: Generate APK (dev-debug)
 
-env:
-  main_project_module: app
-
 on: workflow_dispatch
 
 jobs:
@@ -38,4 +35,4 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: ${{ env.date_today }}_${{ env.repository_name }}_dev_apk
-          path: ${{ env.main_project_module }}/build/outputs/apk_from_bundle/devDebug
+          path: app/build/outputs/apk_from_bundle/devDebug

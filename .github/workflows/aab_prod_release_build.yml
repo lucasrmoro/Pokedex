@@ -1,7 +1,4 @@
-name: Generate signed AAB (prd-release)
-
-env:
-  main_project_module: app
+name: Generate signed AAB/APK (prod-release)
 
 on: workflow_dispatch
 
@@ -35,23 +32,22 @@ jobs:
         run: chmod +x ./gradlew
 
       - name: Decode keystore base64
-        run: |
-          echo "$KEYSTORE_BASE64" | base64 -d > /tmp/keystore.jks
+        run: echo "$KEYSTORE_BASE64" | base64 -d > /tmp/keystore.jks
 
-      - name: Build signed AAB prd release
-        run: ./gradlew ${{ env.main_project_module }}:bundleRelease
+      - name: Build signed AAB prod release
+        run: ./gradlew bundleRelease
 
-      - name: Build APK prd release
+      - name: Build APK prod release
         run: ./gradlew assembleRelease
 
-      - name: Upload AAB artifact - ${{ env.repository_name }}
+      - name: Upload AAB artifact
         uses: actions/upload-artifact@v4
         with:
           name: ${{ env.date_today }}_${{ env.repository_name }}_prod_aab
-          path: ${{ env.main_project_module }}/build/outputs/bundle/prdRelease/
+          path: app/build/outputs/bundle/prdRelease/
 
-      - name: Upload APK artifact - ${{ env.repository_name }}
+      - name: Upload APK artifact
         uses: actions/upload-artifact@v4
         with:
           name: ${{ env.date_today }}_${{ env.repository_name }}_prod_apk
-          path: ${{ env.main_project_module }}/build/outputs/apk/prd/release/
+          path: app/build/outputs/apk/prd/release/
