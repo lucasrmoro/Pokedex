@@ -47,7 +47,7 @@ jobs:
       - name: Build APK prod release
         run: |
           ./gradlew assembleRelease
-          jarsigner -verbose -keystore /tmp/keystore.jks -storepass "$KEYSTORE_FILE_PASSWORD" -keypass "$KEY_PASSWORD" -signedjar app/build/outputs/apk/prd/release/app-release-signed.apk app/build/outputs/apk/prd/release/app-release-unsigned.apk "$KEY_ALIAS"
+          jarsigner -verbose -keystore /tmp/keystore.jks -storepass "$KEYSTORE_FILE_PASSWORD" -keypass "$KEY_PASSWORD" -signedjar app/build/outputs/apk/prd/release/app-prd-release-signed.apk app/build/outputs/apk/prd/release/app-prd-release-unsigned.apk "$KEY_ALIAS"
 
       - name: Upload AAB artifact
         uses: actions/upload-artifact@v4
