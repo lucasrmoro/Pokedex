@@ -8,9 +8,6 @@ jobs:
 
     env:
       KEYSTORE_BASE64: ${{ secrets.KEYSTORE_BASE64 }}
-      KEYSTORE_FILE_PASSWORD: ${{ secrets.KEYSTORE_FILE_PASSWORD }}
-      KEY_ALIAS: ${{ secrets.KEY_ALIAS }}
-      KEY_PASSWORD: ${{ secrets.KEY_PASSWORD }}
 
     steps:
       - uses: actions/checkout@v4
@@ -35,9 +32,17 @@ jobs:
         run: echo "$KEYSTORE_BASE64" | base64 -d > /tmp/keystore.jks
 
       - name: Build signed AAB prod release
+        env:
+          KEYSTORE_FILE_PASSWORD: ${{ secrets.KEYSTORE_FILE_PASSWORD }}
+          KEY_ALIAS: ${{ secrets.KEY_ALIAS }}
+          KEY_PASSWORD: ${{ secrets.KEY_PASSWORD }}
         run: ./gradlew bundleRelease
 
       - name: Build APK prod release
+        env:
+          KEYSTORE_FILE_PASSWORD: ${{ secrets.KEYSTORE_FILE_PASSWORD }}
+          KEY_ALIAS: ${{ secrets.KEY_ALIAS }}
+          KEY_PASSWORD: ${{ secrets.KEY_PASSWORD }}
         run: ./gradlew assembleRelease
 
       - name: Upload AAB artifact
