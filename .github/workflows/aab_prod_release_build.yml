@@ -48,15 +48,15 @@ jobs:
 
       - name: Align APK
         run: |
-          $ANDROID_BUILD_TOOLS_PATH/zipalign -v 4 \
-            $APK_PATH/app-prd-release-unsigned.apk \
-            $APK_PATH/app-prd-release-unsigned-aligned.apk
+          "$ANDROID_BUILD_TOOLS_PATH/zipalign" -v 4 \
+            "$APK_PATH/app-prd-release-unsigned.apk" \
+            "$APK_PATH/app-prd-release-unsigned-aligned.apk"
 
       - name: Sign APK
         run: |
-          $ANDROID_BUILD_TOOLS_PATH/apksigner sign --ks "$KEYSTORE_PATH" --ks-key-alias "$KEY_ALIAS" \
+          "$ANDROID_BUILD_TOOLS_PATH/apksigner" sign --ks "$KEYSTORE_PATH" --ks-key-alias "$KEY_ALIAS" \
           --ks-pass pass:"$KEYSTORE_FILE_PASSWORD" --key-pass pass:"$KEY_PASSWORD" \
-          --out $APK_PATH/app-prd-release-signed-aligned.apk $APK_PATH/app-prd-release-unsigned-aligned.apk
+          --out "$APK_PATH/app-prd-release-signed-aligned.apk" "$APK_PATH/app-prd-release-unsigned-aligned.apk"
 
       - name: Build signed AAB prod release
         run: ./gradlew assembleRelease
