@@ -42,7 +42,7 @@ jobs:
           echo "KEY_PASSWORD=$KEY_PASSWORD" >> $GITHUB_ENV
 
       - name: Build APK prod release
-        run: ./gradlew :app:assemblePrdReleaseUniversalApk
+        run: ./gradlew :app:packagePrdDebugUniversalApk
 
       - name: Align APK
         run: |
