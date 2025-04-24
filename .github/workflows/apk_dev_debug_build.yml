@@ -6,6 +6,9 @@ jobs:
   apk_dev_debug_build:
     runs-on: ubuntu-latest
 
+    env:
+      TZ: "America/Sao_Paulo"
+
     steps:
       - uses: actions/checkout@v4
 

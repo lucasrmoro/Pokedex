@@ -36,12 +36,6 @@ jobs:
       - name: Decode keystore base64
         run: echo "$KEYSTORE_BASE64" | base64 -d > $KEYSTORE_PATH
 
-      - name: Setup env variables
-        run: |
-          echo "KEYSTORE_FILE_PASSWORD=$KEYSTORE_FILE_PASSWORD" >> $GITHUB_ENV
-          echo "KEY_ALIAS=$KEY_ALIAS" >> $GITHUB_ENV
-          echo "KEY_PASSWORD=$KEY_PASSWORD" >> $GITHUB_ENV
-
       - name: Build APK prod release
         run: ./gradlew :app:packagePrdReleaseUniversalApk
 

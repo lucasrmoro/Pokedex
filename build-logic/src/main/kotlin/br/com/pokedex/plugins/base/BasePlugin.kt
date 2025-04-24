@@ -10,7 +10,6 @@ import br.com.pokedex.Flavors.DEFAULT_DIMEN
 import br.com.pokedex.Flavors.DEV
 import br.com.pokedex.Flavors.PRD
 import br.com.pokedex.ProjectConfig
-import br.com.pokedex.Signing
 import br.com.pokedex.ext.setStringBuildConfigField
 import com.android.build.api.dsl.ApplicationExtension
 import com.android.build.api.dsl.CommonExtension
@@ -23,7 +22,6 @@ import org.gradle.api.Project
 import org.gradle.kotlin.dsl.getByType
 import org.gradle.kotlin.dsl.withType
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
-import java.io.File
 
 abstract class BasePlugin : Plugin<Project> {
 
@@ -101,15 +99,6 @@ abstract class BasePlugin : Plugin<Project> {
                     isShrinkResources = true
                 }
                 if (this is ApplicationExtension) {
-                    signingConfigs {
-                        create(BuildTypes.RELEASE) {
-                            storeFile = File(Signing.KEYSTORE_FILE_NAME)
-                            storePassword = System.getenv(Signing.KEYSTORE_FILE_PASSWORD)
-                            keyAlias = System.getenv(Signing.KEY_ALIAS)
-                            keyPassword = System.getenv(Signing.KEY_PASSWORD)
-                        }
-                    }
-                    signingConfig = signingConfigs.getByName(BuildTypes.RELEASE)
                     proguardFiles(
                         getDefaultProguardFile(ProjectConfig.PROGUARD_ANDROID_OPTIMIZE),
                         ProjectConfig.PROGUARD_RULES
