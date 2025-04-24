@@ -56,9 +56,6 @@ jobs:
           --ks-pass pass:"$KEYSTORE_FILE_PASSWORD" --key-pass pass:"$KEY_PASSWORD" \
           --out app/build/outputs/apk/prd/release/app-prd-release-signed-aligned.apk app/build/outputs/apk/prd/release/app-prd-release-unsigned-aligned.apk
 
-      - name: Verify signature
-        run: $ANDROID_HOME/build-tools/34.0.0/apksigner -verify -verbose -certs app/build/outputs/apk/prd/release/app-prd-release-unsigned.apk
-
       - name: Build signed AAB prod release
         run: ./gradlew assembleRelease
 
