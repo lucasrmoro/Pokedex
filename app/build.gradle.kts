@@ -16,10 +16,6 @@ android {
     }
 }
 
-ksp {
-    arg("KOIN_CONFIG_CHECK","true")
-}
-
 dependencies {
     implementation(project(Modules.CORE_NETWORK))
     implementation(project(Modules.LOCAL_STORAGE))

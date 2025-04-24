@@ -28,6 +28,7 @@ class AndroidAppPlugin : BasePlugin() {
 
     private fun Project.setupConfig() = extensions.configure<ApplicationExtension> {
         setupProjectConfig(this)
+
         defaultConfig.apply {
             applicationId = ProjectConfig.APP_ID
             targetSdk = ProjectConfig.TARGET_SDK
