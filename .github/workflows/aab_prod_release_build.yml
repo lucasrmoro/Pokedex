@@ -8,8 +8,6 @@ jobs:
 
     env:
       KEYSTORE_PATH: /tmp/keystore.jks
-      ANDROID_BUILD_TOOLS_PATH: $ANDROID_HOME/build-tools/34.0.0
-      APK_PATH: /app/build/outputs/apk/prd/release/
       KEYSTORE_BASE64: ${{ secrets.KEYSTORE_BASE64 }}
       KEYSTORE_FILE_PASSWORD: ${{ secrets.KEYSTORE_FILE_PASSWORD }}
       KEY_ALIAS: ${{ secrets.KEY_ALIAS }}
@@ -48,15 +46,15 @@ jobs:
 
       - name: Align APK
         run: |
-          "$ANDROID_BUILD_TOOLS_PATH/zipalign" -v 4 \
-            "$APK_PATH/app-prd-release-unsigned.apk" \
-            "$APK_PATH/app-prd-release-unsigned-aligned.apk"
+          $ANDROID_HOME/build-tools/34.0.0/zipalign -v 4 \
+            app/build/outputs/apk/prd/release/app-prd-release-unsigned.apk \
+            app/build/outputs/apk/prd/release/app-prd-release-unsigned-aligned.apk
 
       - name: Sign APK
         run: |
-          "$ANDROID_BUILD_TOOLS_PATH/apksigner" sign --ks "$KEYSTORE_PATH" --ks-key-alias "$KEY_ALIAS" \
+          $ANDROID_HOME/build-tools/34.0.0/apksigner sign --ks "$KEYSTORE_PATH" --ks-key-alias "$KEY_ALIAS" \
           --ks-pass pass:"$KEYSTORE_FILE_PASSWORD" --key-pass pass:"$KEY_PASSWORD" \
-          --out "$APK_PATH/app-prd-release-signed-aligned.apk" "$APK_PATH/app-prd-release-unsigned-aligned.apk"
+          --out app/build/outputs/apk/prd/release/app-prd-release-signed-aligned.apk app/build/outputs/apk/prd/release/app-prd-release-unsigned-aligned.apk
 
       - name: Build signed AAB prod release
         run: ./gradlew assembleRelease
@@ -71,4 +69,4 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: ${{ env.date_today }}_${{ env.repository_name }}_prod_apk
-          path: $APK_PATH/app-prd-release-signed-aligned.apk
+          path: app/build/outputs/apk/prd/release/
