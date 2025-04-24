@@ -47,17 +47,17 @@ jobs:
       - name: Align APK
         run: |
           $ANDROID_HOME/build-tools/34.0.0/zipalign -v 4 \
-            app/build/outputs/apk/prd/release/app-prd-release-unsigned.apk \
-            app/build/outputs/apk/prd/release/app-prd-release-unsigned-aligned.apk
+            app/build/outputs/apk_from_bundle/prdRelease/app-prd-release-universal-unsigned.apk \
+            app/build/outputs/apk/apk_from_bundle/prdRelease/app-prd-release-unsigned-aligned.apk
 
       - name: Sign APK
         run: |
           $ANDROID_HOME/build-tools/34.0.0/apksigner sign --ks "$KEYSTORE_PATH" --ks-key-alias "$KEY_ALIAS" \
           --ks-pass pass:"$KEYSTORE_FILE_PASSWORD" --key-pass pass:"$KEY_PASSWORD" \
-          --out app/build/outputs/apk/prd/release/app-prd-release-signed-aligned.apk app/build/outputs/apk/prd/release/app-prd-release-unsigned-aligned.apk
+          --out app/build/outputs/apk_from_bundle/prdRelease/app-prd-release-signed-aligned.apk app/build/outputs/apk_from_bundle/prdRelease/app-prd-release-unsigned-aligned.apk
 
       - name: Upload APK artifact
         uses: actions/upload-artifact@v4
         with:
           name: ${{ env.date_today }}_${{ env.repository_name }}_prod_apk
-          path: app/build/outputs/apk/prd/release/app-prd-release-signed-aligned.apk
+          path: app/build/outputs/apk_from_bundle/prdRelease/app-prd-release-signed-aligned.apk
