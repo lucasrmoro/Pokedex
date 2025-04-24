@@ -1,9 +1,9 @@
-name: Generate signed AAB/APK (prod-release)
+name: Generate signed APK (prod-release)
 
 on: workflow_dispatch
 
 jobs:
-  aab_apk_prod_release_build:
+  apk_prod_release_build:
     runs-on: ubuntu-latest
 
     env:
