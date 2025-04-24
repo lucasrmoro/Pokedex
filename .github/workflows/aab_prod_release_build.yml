@@ -45,7 +45,10 @@ jobs:
         run: ./gradlew assembleRelease
 
       - name: Sign APK
-        run: jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore "$KEYSTORE_PATH" -storepass "$KEYSTORE_FILE_PASSWORD" -keypass "$KEY_PASSWORD" app/build/outputs/apk/prd/release/app-prd-release-unsigned.apk "$KEY_ALIAS"
+        run: jarsigner -verbose -sigalg SHA256withRSA -digestalg SHA-256 \
+          -keystore "$KEYSTORE_PATH" -storepass "$KEYSTORE_FILE_PASSWORD" \
+          -keypass "$KEY_PASSWORD" \
+          app/build/outputs/apk/prd/release/app-prd-release-unsigned.apk "$KEY_ALIAS"
 
       - name: Verify signature
         run: jarsigner -verify -verbose -certs app/build/outputs/apk/prd/release/app-prd-release-unsigned.apk
@@ -69,4 +72,4 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: ${{ env.date_today }}_${{ env.repository_name }}_prod_apk
-          path: app/build/outputs/apk/prd/release/
+          path: app/build/outputs/apk/prd/release/app-prd-release.apk
