@@ -48,7 +48,7 @@ jobs:
         run: |
           $ANDROID_HOME/build-tools/34.0.0/zipalign -v 4 \
             app/build/outputs/apk_from_bundle/prdRelease/app-prd-release-universal-unsigned.apk \
-            app/build/outputs/apk/apk_from_bundle/prdRelease/app-prd-release-unsigned-aligned.apk
+            app/build/outputs/apk_from_bundle/prdRelease/app-prd-release-unsigned-aligned.apk
 
       - name: Sign APK
         run: |
