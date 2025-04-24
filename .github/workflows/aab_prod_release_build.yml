@@ -61,4 +61,4 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: ${{ env.repository_name }}_prd_release_apk_${{ env.date_today }}
-          path: app/build/outputs/apk_from_bundle/prdRelease/app-prd-release-signed-aligned.apk
+          path: app/build/outputs/apk_from_bundle/prdRelease/${{ env.repository_name }}_prd_release_${{ env.date_today }}.apk
