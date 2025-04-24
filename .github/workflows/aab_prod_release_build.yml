@@ -53,8 +53,8 @@ jobs:
       - name: Align APK
         run: |
           $ANDROID_HOME/build-tools/34.0.0/zipalign -v 4 \
-            app/build/outputs/apk/release/app-release-unsigned.apk \
-            app/build/outputs/apk/release/app-release.apk
+            app/build/outputs/apk/prd/release/app-prd-release-unsigned.apk \
+            app/build/outputs/apk/prd/release/app-prd-release.apk
 
       - name: Build signed AAB prod release
         run: ./gradlew assembleRelease
