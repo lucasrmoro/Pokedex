@@ -45,3 +45,10 @@ internal object ConfigField {
     const val API_BASE_URL_PRD = "https://pokeapi.co/api/v2/"
     const val API_BASE_URL_DEV = "https://pokeapi.co/api/v2/"
 }
+
+internal object Signing {
+    const val KEYSTORE_FILE_NAME = "keystore.jks"
+    const val KEYSTORE_FILE_PASSWORD = "KEYSTORE_FILE_PASSWORD"
+    const val KEY_ALIAS = "KEY_ALIAS"
+    const val KEY_PASSWORD = "KEY_PASSWORD"
+}
