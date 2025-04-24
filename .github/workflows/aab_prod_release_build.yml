@@ -12,9 +12,6 @@ jobs:
       KEYSTORE_FILE_PASSWORD: ${{ secrets.KEYSTORE_FILE_PASSWORD }}
       KEY_ALIAS: ${{ secrets.KEY_ALIAS }}
       KEY_PASSWORD: ${{ secrets.KEY_PASSWORD }}
-      BUILD_TOOLS: $ANDROID_HOME/build-tools/34.0.0
-      APK_DIR: app/build/outputs/apk/prd/release
-      AAB_DIR: app/build/outputs/bundle/prdRelease
 
     steps:
       - uses: actions/checkout@v4
@@ -45,31 +42,22 @@ jobs:
           echo "KEY_PASSWORD=$KEY_PASSWORD" >> $GITHUB_ENV
 
       - name: Build APK prod release
-        run: ./gradlew assembleRelease
+        run: ./gradlew :app:assemblePrdReleaseUniversalApk
 
       - name: Align APK
         run: |
-          $BUILD_TOOLS/zipalign -v 4 \
-            $APK_DIR/app-prd-release-unsigned.apk \
-            $APK_DIR/app-prd-release-unsigned-aligned.apk
+          $ANDROID_HOME/build-tools/34.0.0/zipalign -v 4 \
+            app/build/outputs/apk/prd/release/app-prd-release-unsigned.apk \
+            app/build/outputs/apk/prd/release/app-prd-release-unsigned-aligned.apk
 
       - name: Sign APK
         run: |
-          $BUILD_TOOLS/apksigner sign --ks "$KEYSTORE_PATH" --ks-key-alias "$KEY_ALIAS" \
-            --ks-pass pass:"$KEYSTORE_FILE_PASSWORD" --key-pass pass:"$KEY_PASSWORD" \
-            --out $APK_DIR/app-prd-release-signed-aligned.apk $APK_DIR/app-prd-release-unsigned-aligned.apk
-
-      - name: Build signed AAB prod release
-        run: ./gradlew bundlePrdRelease
-
-      - name: Upload AAB artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: ${{ env.date_today }}_${{ env.repository_name }}_prod_aab
-          path: ${{ env.AAB_DIR }}
+          $ANDROID_HOME/build-tools/34.0.0/apksigner sign --ks "$KEYSTORE_PATH" --ks-key-alias "$KEY_ALIAS" \
+          --ks-pass pass:"$KEYSTORE_FILE_PASSWORD" --key-pass pass:"$KEY_PASSWORD" \
+          --out app/build/outputs/apk/prd/release/app-prd-release-signed-aligned.apk app/build/outputs/apk/prd/release/app-prd-release-unsigned-aligned.apk
 
       - name: Upload APK artifact
         uses: actions/upload-artifact@v4
         with:
           name: ${{ env.date_today }}_${{ env.repository_name }}_prod_apk
-          path: ${{ env.APK_DIR }}/app-prd-release-signed-aligned.apk
+          path: app/build/outputs/apk/prd/release/app-prd-release-signed-aligned.apk
