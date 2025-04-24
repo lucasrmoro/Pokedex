@@ -45,10 +45,11 @@ jobs:
         run: ./gradlew assembleRelease
 
       - name: Sign APK
-        run: jarsigner -verbose -sigalg SHA256withRSA -digestalg SHA-256 \
-          -keystore "$KEYSTORE_PATH" -storepass "$KEYSTORE_FILE_PASSWORD" \
-          -keypass "$KEY_PASSWORD" \
-          app/build/outputs/apk/prd/release/app-prd-release-unsigned.apk "$KEY_ALIAS"
+        run: |
+          jarsigner -verbose -sigalg SHA256withRSA -digestalg SHA-256 \
+            -keystore "$KEYSTORE_PATH" -storepass "$KEYSTORE_FILE_PASSWORD" \
+            -keypass "$KEY_PASSWORD" \
+            app/build/outputs/apk/prd/release/app-prd-release-unsigned.apk "$KEY_ALIAS"
 
       - name: Verify signature
         run: jarsigner -verify -verbose -certs app/build/outputs/apk/prd/release/app-prd-release-unsigned.apk
