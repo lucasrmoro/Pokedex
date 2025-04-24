@@ -73,4 +73,4 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: ${{ env.date_today }}_${{ env.repository_name }}_prod_apk
-          path: app/build/outputs/apk/prd/release/app-prd-release.apk
+          path: app/build/outputs/apk/prd/release/
