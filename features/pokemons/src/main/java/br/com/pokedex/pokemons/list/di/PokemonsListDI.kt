@@ -13,8 +13,6 @@ import br.com.pokedex.pokemons.list.domain.useCase.get.GetPokemonsByNameUseCase
 import br.com.pokedex.pokemons.list.domain.useCase.get.GetPokemonsByNameUseCaseImpl
 import br.com.pokedex.pokemons.list.domain.useCase.getAll.GetAllPokemonsUseCase
 import br.com.pokedex.pokemons.list.domain.useCase.getAll.GetAllPokemonsUseCaseImpl
-import br.com.pokedex.pokemons.list.presentation.viewModel.FormViewModel
-import br.com.pokedex.pokemons.list.presentation.viewModel.ListViewModel
 import br.com.pokedex.pokemons.list.presentation.viewModel.PokemonsListViewModel
 import org.koin.core.context.loadKoinModules
 import org.koin.core.module.dsl.viewModel
@@ -52,8 +50,6 @@ private val viewModelModule = module {
             getPokemonsByNameUseCase = get()
         )
     }
-    viewModel { ListViewModel(fooRepository = get()) }
-    viewModel { FormViewModel(fooRepository = get()) }
 }
 
 internal object PokemonsListModule {
