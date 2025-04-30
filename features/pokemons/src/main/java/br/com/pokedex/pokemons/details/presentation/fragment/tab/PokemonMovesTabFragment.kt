@@ -1,0 +1,17 @@
+package br.com.pokedex.pokemons.details.presentation.fragment.tab
+
+import br.com.pokedex.core_ui.base.fragment.BaseFragment
+import br.com.pokedex.pokemons.databinding.FragPokemonMovesTabBinding
+import br.com.pokedex.pokemons.details.presentation.viewModel.PokemonMovesTabViewModel
+
+internal class PokemonMovesTabFragment private constructor() :
+    BaseFragment<FragPokemonMovesTabBinding, PokemonMovesTabViewModel>(FragPokemonMovesTabBinding::inflate) {
+
+    override fun setupViews() {
+
+    }
+
+    companion object {
+        fun newInstance() = PokemonMovesTabFragment()
+    }
+}

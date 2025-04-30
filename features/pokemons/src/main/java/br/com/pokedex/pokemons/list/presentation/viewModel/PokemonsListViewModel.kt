@@ -33,10 +33,10 @@ class PokemonsListViewModel(
     override fun loadItems(page: Int) {
         launch {
             getAllPokemonsUseCase(page = page, itemsPerPage = itemsPerPage).onError {
-                _onFetchPokemons.postValue(null to message)
+                _onFetchPokemons.postValue(Pair(null, message))
             }.onSuccess {
                 _pagesCount = this.pagesCount
-                _onFetchPokemons.postValue(this.pokemons to null)
+                _onFetchPokemons.postValue(Pair(pokemons, null))
             }
         }
     }
@@ -51,13 +51,14 @@ class PokemonsListViewModel(
         launch {
             getPokemonsByNameUseCase(name.orEmpty()).onError {
                 _onFetchPokemons.postValue(
-                    _onFetchPokemons.value?.first to resourcesProvider.getString(
-                        R.string.no_pokemon_found, name.orEmpty()
+                    Pair(
+                        _onFetchPokemons.value?.first,
+                        resourcesProvider.getString(R.string.no_pokemon_found, name.orEmpty())
                     )
                 )
             }.onSuccess {
                 _pagesCount = this.pagesCount
-                _onFetchPokemons.postValue(this.pokemons to null)
+                _onFetchPokemons.postValue(Pair(pokemons, null))
             }
         }
     }

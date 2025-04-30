@@ -10,4 +10,9 @@
     <string name="search">Search</string>
     <string name="no_pokemon_found">No pokemon with name %1$s was found</string>
 
+    <!-- Pokemon Details Screen -->
+    <string name="stats">Stats</string>
+    <string name="evolutions">Evolutions</string>
+    <string name="unable_to_load_pokemon_details">Unable to fetch Pokemon details</string>
+
 </resources>

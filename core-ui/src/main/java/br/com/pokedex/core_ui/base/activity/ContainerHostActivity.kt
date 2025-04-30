@@ -82,7 +82,7 @@ abstract class ContainerHostActivity<VM : BaseViewModel> : BaseActivity<VM>() {
     private fun setupOnBackPressed() {
         onBackPressedDispatcher.addCallback(this) {
             when {
-                lastFragment?.onBackPressed() ?: false -> return@addCallback
+                lastFragment?.onActivityBackPressed() ?: false -> return@addCallback
                 navigationProvider.isLastFragment.not() -> navigationProvider.popBackStack()
                 else -> finish()
             }

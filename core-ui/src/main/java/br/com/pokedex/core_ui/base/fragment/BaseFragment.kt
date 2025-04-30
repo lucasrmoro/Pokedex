@@ -63,7 +63,7 @@ abstract class BaseFragment<VB : ViewBinding, VM : BaseViewModel>(
     }
 
     // Return true to use your custom impl otherwise false for default
-    open fun onBackPressed(): Boolean = false
+    open fun onActivityBackPressed(): Boolean = false
 
     @CallSuper
     override fun onCreateView(
@@ -114,5 +114,9 @@ abstract class BaseFragment<VB : ViewBinding, VM : BaseViewModel>(
 
     protected fun closeNavDrawer() {
         baseNavDrawerContainerActivity?.drawerLayout?.closeDrawer(GravityCompat.START)
+    }
+
+    protected fun onBackPressed() {
+        activity?.onBackPressedDispatcher?.onBackPressed()
     }
 }

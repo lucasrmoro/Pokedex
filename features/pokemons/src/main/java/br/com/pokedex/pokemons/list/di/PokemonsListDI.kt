@@ -9,6 +9,8 @@ import br.com.pokedex.pokemons.list.domain.mapper.PokemonMapper
 import br.com.pokedex.pokemons.list.domain.mapper.PokemonMapperImpl
 import br.com.pokedex.pokemons.list.domain.repository.PokemonsRepository
 import br.com.pokedex.pokemons.list.domain.repository.PokemonsRepositoryImpl
+import br.com.pokedex.pokemons.list.domain.useCase.get.GetPokemonDetailsUseCase
+import br.com.pokedex.pokemons.list.domain.useCase.get.GetPokemonDetailsUseCaseImpl
 import br.com.pokedex.pokemons.list.domain.useCase.get.GetPokemonsByNameUseCase
 import br.com.pokedex.pokemons.list.domain.useCase.get.GetPokemonsByNameUseCaseImpl
 import br.com.pokedex.pokemons.list.domain.useCase.getAll.GetAllPokemonsUseCase
@@ -40,6 +42,7 @@ private val domainModule = module {
     // Use Case
     single<GetAllPokemonsUseCase> { GetAllPokemonsUseCaseImpl(pokemonsRepository = get()) }
     single<GetPokemonsByNameUseCase> { GetPokemonsByNameUseCaseImpl(pokemonsRepository = get()) }
+    single<GetPokemonDetailsUseCase> { GetPokemonDetailsUseCaseImpl(pokemonsRepository = get()) }
 }
 
 private val viewModelModule = module {

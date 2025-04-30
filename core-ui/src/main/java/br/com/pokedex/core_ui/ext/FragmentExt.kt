@@ -1,16 +1,16 @@
 package br.com.pokedex.core_ui.ext
 
-import android.content.Intent
+import android.os.Bundle
 import android.view.MenuItem
 import android.widget.Toast
 import androidx.annotation.MenuRes
 import androidx.annotation.StringRes
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.LifecycleOwner
+import br.com.pokedex.core.ext.openActivity
 import br.com.pokedex.core.ext.showToast
-import br.com.pokedex.core.base.activity.BaseActivity
 import br.com.pokedex.core_ui.base.fragment.BaseFragment
-import kotlin.reflect.KClass
 
 val BaseFragment<*, *>.isFragmentVisible
     get() = parentFragmentManager.fragments.filterIsInstance<BaseFragment<*, *>>().javaClass == javaClass
@@ -23,8 +23,11 @@ fun BaseFragment<*, *>.showToast(@StringRes message: Int, length: Int = Toast.LE
     context.showToast(message, length)
 }
 
-fun <T : KClass<out BaseActivity<*>>> BaseFragment<*, *>.openActivity(activityKClass: T) {
-    Intent(context, activityKClass.java).also { startActivity(it) }
+inline fun <reified T : AppCompatActivity> BaseFragment<*, *>.openActivity(
+    addNewTaskFlag: Boolean = false,
+    args: Bundle.() -> Unit = { }
+) {
+    context?.openActivity<T>(addNewTaskFlag = addNewTaskFlag, args = args)
 }
 
 fun Fragment.setMenu(
@@ -33,4 +36,12 @@ fun Fragment.setMenu(
     onMenuItemClicked: (MenuItem) -> Boolean
 ) {
     activity?.setMenu(menuRes, lifecycleOwner, onMenuItemClicked)
+}
+
+fun Fragment.intArg(key: String): Lazy<Int?> = lazy {
+    arguments?.getInt(key)
+}
+
+fun <T : Fragment> T.putArgs(args: Bundle.() -> Unit): T = this.apply {
+    arguments = Bundle().apply(args)
 }

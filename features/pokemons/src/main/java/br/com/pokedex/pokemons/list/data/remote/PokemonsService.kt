@@ -12,16 +12,19 @@ internal interface PokemonsService {
     suspend fun getPokemons(@Query(OFFSET) offset: Int, @Query(LIMIT) limit: Int): PokemonsListDTO
 
     @GET(GET_POKEMON)
-    suspend fun getPokemonDetails(@Path(NAME_PARAM) name: String): PokemonDetailsDTO
+    suspend fun getPokemonDetails(@Path(ID_OR_NAME_PARAM) name: String): PokemonDetailsDTO
+
+    @GET(GET_POKEMON)
+    suspend fun getPokemonDetails(@Path(ID_OR_NAME_PARAM) id: Int): PokemonDetailsDTO
 
     companion object {
         // Params
-        private const val NAME_PARAM = "name"
+        private const val ID_OR_NAME_PARAM = "id_or_name"
         private const val OFFSET = "offset"
         private const val LIMIT = "limit"
 
         // Endpoints
         private const val GET_POKEMONS = "pokemon"
-        private const val GET_POKEMON = "pokemon/{$NAME_PARAM}"
+        private const val GET_POKEMON = "pokemon/{$ID_OR_NAME_PARAM}"
     }
 }

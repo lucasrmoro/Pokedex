@@ -3,9 +3,11 @@ package br.com.pokedex.pokemons.list.presentation.fragment
 import androidx.appcompat.widget.SearchView
 import br.com.pokedex.core.ext.hideKeyboard
 import br.com.pokedex.core_ui.adapter.PokedexGenericAdapter
+import br.com.pokedex.core_ui.adapter.callbacks.PokemonsListAdapterCallbacks
 import br.com.pokedex.core_ui.adapter.model.PokemonItem
 import br.com.pokedex.core_ui.base.fragment.BaseFragment
 import br.com.pokedex.core_ui.ext.hide
+import br.com.pokedex.core_ui.ext.openActivity
 import br.com.pokedex.core_ui.ext.setHomeAsUpIndicator
 import br.com.pokedex.core_ui.ext.setMenu
 import br.com.pokedex.core_ui.ext.setOnQueryTextChangeDebouncing
@@ -13,13 +15,28 @@ import br.com.pokedex.core_ui.ext.show
 import br.com.pokedex.core_ui.ext.showToast
 import br.com.pokedex.pokemons.R
 import br.com.pokedex.pokemons.databinding.FragPokemonsListBinding
+import br.com.pokedex.pokemons.details.presentation.activity.PokemonDetailsActivity
 import br.com.pokedex.pokemons.list.presentation.viewModel.PokemonsListViewModel
+import timber.log.Timber
 import br.com.pokedex.core_ui.R as coreUiR
 
-class PokemonsListFragment private constructor() :
+internal class PokemonsListFragment private constructor() :
     BaseFragment<FragPokemonsListBinding, PokemonsListViewModel>(FragPokemonsListBinding::inflate) {
 
-    private val pokemonsAdapter = PokedexGenericAdapter()
+    private val pokemonsAdapter = PokedexGenericAdapter(
+        object : PokemonsListAdapterCallbacks {
+            override fun onClick(pokemon: PokemonItem) {
+                openActivity<PokemonDetailsActivity> {
+                    putInt(PokemonDetailsActivity.POKEMON_ID, pokemon.id)
+                }
+            }
+
+            override fun onFavorite(pokemon: PokemonItem, isFavorite: Boolean) {
+                Timber.d("Adapter onFavorite | isFavorite: $isFavorite, pokemon: $pokemon")
+                // TODO: Favorite pokemon
+            }
+        }
+    )
 
     override val showBackButton: Boolean = false
     override fun toolbarTitle(): Int = R.string.pokemons
