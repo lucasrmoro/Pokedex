@@ -1,5 +1,3 @@
-import br.com.pokedex.modules.Modules
-
 plugins {
     alias(libs.plugins.pokedex.domain)
 }

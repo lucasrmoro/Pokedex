@@ -6,8 +6,6 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import br.com.pokedex.core.ext.ONE
 import br.com.pokedex.core_ui.adapter.PokedexGenericAdapter
-import br.com.pokedex.domain.adapter.model.Loading
-import br.com.pokedex.domain.adapter.AdapterItem
 import br.com.pokedex.core_ui.components.recyclerView.PokedexEndlessRecyclerViewScrollListener.PokedexEndlessRecyclerViewScrollListenerCallbacks
 
 class PokedexEndlessRecyclerView @JvmOverloads constructor(

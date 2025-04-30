@@ -1,6 +1,3 @@
-import br.com.pokedex.ext.ksp
-import br.com.pokedex.modules.Modules
-
 plugins {
     alias(libs.plugins.pokedex.android.library)
     alias(libs.plugins.ksp)
