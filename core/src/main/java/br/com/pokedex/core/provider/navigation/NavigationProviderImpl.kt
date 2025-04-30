@@ -97,7 +97,6 @@ internal class NavigationProviderImpl(
 
     private fun setupOnBackStackChangedListener() = with(fragmentManager) {
         addOnBackStackChangedListener {
-            Timber.d("AddOnBackStackChangedListener - Android")
             fragmentManager.fragments.lastOrNull()?.let { lastFrag ->
                 oldBackStackEntryCount.also { oldCount ->
                     oldBackStackEntryCount = backStackEntryCount

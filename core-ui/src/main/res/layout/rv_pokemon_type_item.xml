@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/RoundedMaterialCardView"
+    android:layout_width="wrap_content"
+    android:layout_height="@dimen/pokemon_type_item_vh_height"
+    android:gravity="center"
+    android:orientation="horizontal"
+    android:paddingVertical="@dimen/small_dimen"
+    app:cardCornerRadius="@dimen/default_dimen"
+    tools:cardBackgroundColor="@color/red">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        tools:ignore="UseCompoundDrawables">
+
+        <ImageView
+            android:id="@+id/ivType"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginStart="@dimen/tiny_dimen"
+            tools:src="@android:drawable/ic_menu_add"
+            tools:tint="@color/white" />
+
+        <TextView
+            android:id="@+id/tvType"
+            style="@style/TextViewBoldStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginStart="@dimen/tiny_dimen"
+            android:layout_marginEnd="@dimen/default_dimen"
+            android:textAllCaps="true"
+            tools:text="Fire"
+            tools:textColor="@color/white" />
+
+    </LinearLayout>
+
+</com.google.android.material.card.MaterialCardView>

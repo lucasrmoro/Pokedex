@@ -8,6 +8,9 @@
     <dimen name="big_dimen">32dp</dimen>
     <dimen name="huge_dimen">40dp</dimen>
     <dimen name="biggest_dimen">48dp</dimen>
+    <dimen name="margin_dimen">64dp</dimen>
+    <dimen name="big_margin_dimen">96dp</dimen>
+    <dimen name="biggest_margin_dimen">156dp</dimen>
 
     <!-- Text Size -->
     <dimen name="smallest_text">10sp</dimen>
@@ -18,6 +21,10 @@
     <dimen name="big_text">32sp</dimen>
     <dimen name="biggest_text">44sp</dimen>
     <dimen name="huge_text">56sp</dimen>
+
+    <!-- Elevation -->
+    <dimen name="negative_elevation">-1dp</dimen>
+    <dimen name="none_elevation">0dp</dimen>
 
     <!-- Radius -->
     <dimen name="smallest_radius">4dp</dimen>
@@ -33,4 +40,7 @@
     <!-- Pokemon Item -->
     <dimen name="pokemon_item_vh_height">180dp</dimen>
     <dimen name="pokemon_item_vh_image_width">150dp</dimen>
+
+    <!-- Pokemon Type Item -->
+    <dimen name="pokemon_type_item_vh_height">56dp</dimen>
 </resources>

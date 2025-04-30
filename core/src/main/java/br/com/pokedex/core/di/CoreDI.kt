@@ -20,7 +20,7 @@ private val coreModule = module {
     single<CoroutineDispatcher>(DispatcherIO) { Dispatchers.IO }
     single<CoroutineDispatcher>(DispatcherMain) { Dispatchers.Main }
     single<CoroutineDispatcher>(DispatcherDefault) { Dispatchers.Default }
-    single<NavigationProvider> { params -> NavigationProviderImpl(params.get()) }
+    factory<NavigationProvider> { params -> NavigationProviderImpl(params.get()) }
     single<PermissionsProvider> { params -> PermissionsProviderImpl(params.get()) }
     single<AppSessionProvider> { AppSessionProviderImpl() }
     single<NetworkConnectivityProvider> { NetworkConnectivityProviderImpl(context = get()) }

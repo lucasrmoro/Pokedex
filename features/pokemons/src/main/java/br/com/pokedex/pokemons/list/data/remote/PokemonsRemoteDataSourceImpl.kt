@@ -20,4 +20,7 @@ internal class PokemonsRemoteDataSourceImpl(
     override suspend fun getPokemonDetails(name: String): Flow<PokemonDetailsDTO> =
         call { pokemonsService.getPokemonDetails(name) }
 
+    override suspend fun getPokemonDetails(id: Int): Flow<PokemonDetailsDTO> =
+        call { pokemonsService.getPokemonDetails(id) }
+
 }
