@@ -9,7 +9,6 @@ android {
 }
 
 dependencies {
-    implementation(project(Modules.DOMAIN))
-    implementation(project(Modules.CORE_NETWORK))
+    implementation(project(Modules.Domain.POKEMONS))
     implementation(libs.bundles.retrofit)
 }

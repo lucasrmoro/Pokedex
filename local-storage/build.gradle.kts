@@ -12,7 +12,6 @@ android {
 
 dependencies {
     implementation(project(Modules.CORE))
-    implementation(project(Modules.ENTITIES))
     implementation(libs.androidx.security)
     implementation(libs.bundles.room)
     ksp(libs.room.compiler)

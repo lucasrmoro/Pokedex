@@ -4,9 +4,9 @@ import android.content.Context
 import android.content.res.Resources
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewbinding.ViewBinding
-import br.com.pokedex.core_ui.adapter.model.base.AdapterItem
+import br.com.pokedex.domain.adapter.AdapterItem
 
-abstract class BaseViewHolder<T : AdapterItem, VB : ViewBinding>(private val binding: VB) :
+abstract class BaseViewHolder<T : br.com.pokedex.domain.adapter.AdapterItem, VB : ViewBinding>(private val binding: VB) :
     RecyclerView.ViewHolder(binding.root) {
 
     protected val context: Context

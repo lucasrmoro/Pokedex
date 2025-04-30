@@ -11,8 +11,4 @@ interface PreferencesDataSource {
     fun getLong(key: String, defValue: Long): Long
     fun putLong(key: String, value: Long)
 
-    companion object {
-        const val ACCESS_TOKEN = "ACCESS_TOKEN"
-        const val REFRESH_TOKEN = "REFRESH_TOKEN"
-    }
 }

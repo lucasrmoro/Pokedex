@@ -12,7 +12,6 @@ android {
 
 dependencies {
     implementation(project(Modules.CORE))
-    implementation(project(Modules.ENTITIES))
     implementation(project(Modules.LOCAL_STORAGE))
     implementation(libs.bundles.retrofit)
     implementation(libs.okhttp.loggingInterceptor)

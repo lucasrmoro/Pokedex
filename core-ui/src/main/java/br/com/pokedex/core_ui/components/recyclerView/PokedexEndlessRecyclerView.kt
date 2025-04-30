@@ -6,8 +6,8 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import br.com.pokedex.core.ext.ONE
 import br.com.pokedex.core_ui.adapter.PokedexGenericAdapter
-import br.com.pokedex.core_ui.adapter.model.Loading
-import br.com.pokedex.core_ui.adapter.model.base.AdapterItem
+import br.com.pokedex.domain.adapter.model.Loading
+import br.com.pokedex.domain.adapter.AdapterItem
 import br.com.pokedex.core_ui.components.recyclerView.PokedexEndlessRecyclerViewScrollListener.PokedexEndlessRecyclerViewScrollListenerCallbacks
 
 class PokedexEndlessRecyclerView @JvmOverloads constructor(
@@ -19,7 +19,7 @@ class PokedexEndlessRecyclerView @JvmOverloads constructor(
     private val pokedexGenericAdapter: PokedexGenericAdapter?
         get() = adapter as? PokedexGenericAdapter
 
-    private val items: List<AdapterItem>
+    private val items: List<br.com.pokedex.domain.adapter.AdapterItem>
         get() = pokedexGenericAdapter?.currentList.orEmpty()
 
     var currentPage = Int.ONE
@@ -45,7 +45,7 @@ class PokedexEndlessRecyclerView @JvmOverloads constructor(
         addOnScrollListener(PokedexEndlessRecyclerViewScrollListener(this))
     }
 
-    fun <T : AdapterItem> onLoadItemsSuccess(newItems: List<T>) {
+    fun <T : br.com.pokedex.domain.adapter.AdapterItem> onLoadItemsSuccess(newItems: List<T>) {
         removeLoading {
             pokedexGenericAdapter?.submitList(
                 if (currentPage == Int.ONE) newItems else items.plus(newItems)
@@ -65,7 +65,7 @@ class PokedexEndlessRecyclerView @JvmOverloads constructor(
     private fun showLoading(onLoadingShown: () -> Unit) {
         post {
             _isLoading = true
-            pokedexGenericAdapter?.submitList(items.plus(Loading())) {
+            pokedexGenericAdapter?.submitList(items.plus(br.com.pokedex.domain.adapter.model.Loading())) {
                 onLoadingShown()
             }
         }
@@ -74,7 +74,7 @@ class PokedexEndlessRecyclerView @JvmOverloads constructor(
     private fun removeLoading(onLoadingRemoved: () -> Unit = {}) {
         post {
             _isLoading = false
-            pokedexGenericAdapter?.submitList(items.filter { it !is Loading }) {
+            pokedexGenericAdapter?.submitList(items.filter { it !is br.com.pokedex.domain.adapter.model.Loading }) {
                 onLoadingRemoved()
             }
         }

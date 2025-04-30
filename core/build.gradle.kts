@@ -11,7 +11,6 @@ android {
 }
 
 dependencies {
-    implementation(project(Modules.ENTITIES))
     implementation(libs.bundles.android)
     implementation(libs.bundles.retrofit)
     implementation(libs.bundles.koin)

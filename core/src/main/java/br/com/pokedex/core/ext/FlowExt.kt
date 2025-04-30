@@ -1,6 +1,6 @@
 package br.com.pokedex.core.ext
 
-import br.com.pokedex.entities.PokedexException
+import br.com.pokedex.core.exceptions.PokedexException
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.transform

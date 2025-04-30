@@ -34,8 +34,6 @@ class AndroidFeaturePlugin : BasePlugin() {
         implementation(project(Modules.APP))
         implementation(project(Modules.CORE))
         implementation(project(Modules.CORE_UI))
-        implementation(project(Modules.CORE_NETWORK))
-        implementation(project(Modules.ENTITIES))
         implementation(libs.material)
         implementation(libs.bundles.android)
         implementation(libs.bundles.koin)
