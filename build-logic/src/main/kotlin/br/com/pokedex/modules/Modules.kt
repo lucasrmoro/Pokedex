@@ -5,9 +5,21 @@ object Modules {
     const val CORE = ":core"
     const val CORE_NETWORK = ":core-network"
     const val CORE_UI = ":core-ui"
-    const val ENTITIES = ":entities"
+    const val DOMAIN = ":domain:domain"
     const val LOCAL_STORAGE = ":local-storage"
-    const val DATA = ":data"
-    const val DOMAIN = ":domain"
-    const val POKEMONS_LIST = ":features:pokemons"
+
+    object Data {
+        private const val ROOT = ":data"
+        const val POKEMONS = "$ROOT:pokemons"
+    }
+
+    object Domain {
+        private const val ROOT = ":domain"
+        const val POKEMONS = "$ROOT:pokemons"
+    }
+
+    object Feature {
+        private const val ROOT = ":features"
+        const val POKEMONS = "$ROOT:pokemons"
+    }
 }

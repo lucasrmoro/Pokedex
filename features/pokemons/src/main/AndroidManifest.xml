@@ -12,11 +12,11 @@
     </dist:module>
 
     <application>
-        <activity android:name=".list.presentation.activity.PokemonsListActivity">
+        <activity android:name=".list.activity.PokemonsListActivity">
             <meta-data
                 android:name="addressable"
                 android:value="true" />
         </activity>
-        <activity android:name=".details.presentation.activity.PokemonDetailsActivity" />
+        <activity android:name=".details.activity.PokemonDetailsActivity" />
     </application>
 </manifest>

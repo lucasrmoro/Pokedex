@@ -5,7 +5,6 @@ import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 
 object ProjectConfig {
     const val APP_ID = "br.com.pokedex"
-    const val NAMESPACE = "br.com.pokedex"
     const val MIN_SDK = 26
     const val TARGET_SDK = 35
     const val COMPILE_SDK = 35

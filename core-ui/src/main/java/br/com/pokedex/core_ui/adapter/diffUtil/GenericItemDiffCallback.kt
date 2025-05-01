@@ -1,7 +1,7 @@
 package br.com.pokedex.core_ui.adapter.diffUtil
 
 import androidx.recyclerview.widget.DiffUtil
-import br.com.pokedex.core_ui.adapter.model.base.AdapterItem
+import br.com.pokedex.domain.adapter.AdapterItem
 
 class GenericItemDiffCallback : DiffUtil.ItemCallback<AdapterItem>() {
 

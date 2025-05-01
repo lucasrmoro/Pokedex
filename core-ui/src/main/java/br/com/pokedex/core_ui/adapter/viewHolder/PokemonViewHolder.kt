@@ -6,10 +6,10 @@ import br.com.pokedex.core.ext.ONE
 import br.com.pokedex.core_ui.R
 import br.com.pokedex.core_ui.adapter.base.BaseViewHolder
 import br.com.pokedex.core_ui.adapter.callbacks.PokemonsListAdapterCallbacks
-import br.com.pokedex.core_ui.adapter.model.PokemonItem
 import br.com.pokedex.core_ui.databinding.RvPokemonItemBinding
 import br.com.pokedex.core_ui.ext.onComplete
 import br.com.pokedex.core_ui.ext.palette
+import br.com.pokedex.domain.adapter.model.pokemons.PokemonItem
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 

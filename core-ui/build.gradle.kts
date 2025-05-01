@@ -10,6 +10,7 @@ android {
 
 dependencies {
     implementation(project(Modules.CORE))
+    implementation(project(Modules.DOMAIN))
     implementation(libs.glide)
     implementation(libs.palette)
     implementation(libs.bundles.android)
