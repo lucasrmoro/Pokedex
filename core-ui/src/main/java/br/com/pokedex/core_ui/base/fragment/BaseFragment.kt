@@ -43,6 +43,7 @@ abstract class BaseFragment<VB : ViewBinding, VM : BaseViewModel>(
         get() = baseContainerActivity?.supportActionBar
 
     open val showBackButton: Boolean = true
+    open val applyBackgroundColor: Boolean = true
     protected abstract fun setupViews()
     protected open fun setupListeners() {}
     protected open fun setupObservers() {}
@@ -72,7 +73,9 @@ abstract class BaseFragment<VB : ViewBinding, VM : BaseViewModel>(
         savedInstanceState: Bundle?
     ): View? {
         _binding = inflater(inflater, container, false)
-        binding.root.setBackgroundColor(requireContext().getColor(R.color.dark_75))
+        if (applyBackgroundColor) {
+            binding.root.setBackgroundColor(requireContext().getColor(R.color.dark_75))
+        }
         return binding.root
     }
 

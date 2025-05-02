@@ -7,6 +7,8 @@ import br.com.pokedex.pokemons.details.viewModel.PokemonMovesTabViewModel
 internal class PokemonMovesTabFragment private constructor() :
     BaseFragment<FragPokemonMovesTabBinding, PokemonMovesTabViewModel>(FragPokemonMovesTabBinding::inflate) {
 
+    override val applyBackgroundColor: Boolean = false
+
     override fun setupViews() {
 
     }

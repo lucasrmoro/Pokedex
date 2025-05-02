@@ -25,8 +25,14 @@ val Int.Companion.FOUR
 val Int.Companion.TWENTY
     get() = 20
 
+val Int.Companion.THIRTY
+    get() = 30
+
 val Int.Companion.ONE_HUNDRED
     get() = 100
+
+val Int.Companion.TWO_HUNDRED_FIFTY_FIVE
+    get() = 255
 
 fun Int?.orZero() = this ?: Int.ZERO
 
@@ -40,6 +46,9 @@ val Int.Companion.random
 val Double.Companion.ZERO
     get() = 0.0
 
+val Double.Companion.ONE_HUNDRED
+    get() = 100.0
+
 /**
  * Long
  */
@@ -49,6 +58,9 @@ val Long.Companion.ZERO
 
 val Long.Companion.FIVE
     get() = 5L
+
+val Long.Companion.ONE_HUNDRED
+    get() = 100L
 
 val Long.Companion.TWO_SECONDS_IN_MILLIS
     get() = 2_000L

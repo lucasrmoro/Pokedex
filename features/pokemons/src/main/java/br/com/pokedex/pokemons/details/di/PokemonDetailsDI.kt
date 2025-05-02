@@ -9,7 +9,7 @@ import org.koin.core.module.dsl.viewModel
 import org.koin.dsl.module
 
 private val module = module {
-    viewModel { PokemonDetailsViewModel() }
+    viewModel { PokemonDetailsViewModel(getPokemonDetailsUseCase = get()) }
     viewModel { PokemonStatsTabViewModel() }
     viewModel { PokemonEvolutionTabViewModel() }
     viewModel { PokemonMovesTabViewModel() }

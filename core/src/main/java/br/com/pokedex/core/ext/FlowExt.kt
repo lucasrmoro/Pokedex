@@ -56,3 +56,7 @@ suspend fun <T> Flow<T>.collectResultSafely(): T? {
 }
 
 fun <T, R> Flow<T>.update(block: suspend T.() -> R): Flow<R> = transform { emit(block(it)) }
+
+fun <T, R> Flow<T>.updateNotNull(block: suspend T.() -> R?): Flow<R> = transform {
+    block(it)?.let { safeBlock -> emit(safeBlock) }
+}

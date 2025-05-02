@@ -1,4 +1,4 @@
-package br.com.pokedex.domain.adapter.model.pokemons
+package br.com.pokedex.pokemons.model
 
 import br.com.pokedex.core.ext.FOUR
 import br.com.pokedex.core.ext.HASH

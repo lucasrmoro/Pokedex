@@ -9,6 +9,8 @@ internal class PokemonEvolutionsTabFragment private constructor() :
         FragPokemonEvolutionsTabBinding::inflate
     ) {
 
+    override val applyBackgroundColor: Boolean = false
+
     override fun setupViews() {
 
     }

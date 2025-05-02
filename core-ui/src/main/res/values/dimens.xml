@@ -25,10 +25,12 @@
     <!-- Elevation -->
     <dimen name="negative_elevation">-1dp</dimen>
     <dimen name="none_elevation">0dp</dimen>
+    <dimen name="smallest_elevation">2dp</dimen>
 
     <!-- Radius -->
     <dimen name="smallest_radius">4dp</dimen>
-    <dimen name="button_radius">8dp</dimen>
+    <dimen name="small_radius">8dp</dimen>
+    <dimen name="default_radius">16dp</dimen>
 
     <!-- Stroke -->
     <dimen name="default_stroke_size">1dp</dimen>
@@ -42,5 +44,5 @@
     <dimen name="pokemon_item_vh_image_width">150dp</dimen>
 
     <!-- Pokemon Type Item -->
-    <dimen name="pokemon_type_item_vh_height">56dp</dimen>
+    <dimen name="pokemon_type_item_vh_height">32dp</dimen>
 </resources>

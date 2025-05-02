@@ -9,7 +9,7 @@ import br.com.pokedex.core_ui.adapter.callbacks.PokemonsListAdapterCallbacks
 import br.com.pokedex.core_ui.databinding.RvPokemonItemBinding
 import br.com.pokedex.core_ui.ext.onComplete
 import br.com.pokedex.core_ui.ext.palette
-import br.com.pokedex.domain.adapter.model.pokemons.PokemonItem
+import br.com.pokedex.pokemons.model.PokemonItem
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 

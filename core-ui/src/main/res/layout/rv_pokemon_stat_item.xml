@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@null"
+    android:orientation="horizontal"
+    android:paddingBottom="@dimen/tiny_dimen">
+
+    <TextView
+        android:id="@+id/tvStat"
+        style="@style/TextViewBoldStyle"
+        android:layout_width="@dimen/biggest_dimen"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        tools:text="SATK" />
+
+    <TextView
+        android:id="@+id/tvStatValue"
+        style="@style/TextViewDefaultDark450Style"
+        android:layout_width="@dimen/big_dimen"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        tools:text="000" />
+
+    <com.google.android.material.progressindicator.LinearProgressIndicator
+        android:id="@+id/linearProgressIndicator"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:max="100"
+        app:trackCornerRadius="@dimen/small_radius"
+        app:trackThickness="@dimen/tiny_dimen" />
+
+</LinearLayout>

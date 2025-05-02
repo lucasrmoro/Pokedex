@@ -10,5 +10,5 @@ fun ViewPager2.attachTo(
 ) {
     TabLayoutMediator(tabLayout, this) { tab, pos ->
         setupBlock(tab, pos)
-    }
+    }.attach()
 }
