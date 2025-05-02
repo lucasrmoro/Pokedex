@@ -4,12 +4,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fillViewport="true"
-    tools:fillViewport="false">
+    android:visibility="gone"
+    tools:background="#03A9F4"
+    tools:fillViewport="false"
+    tools:visibility="visible">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        tools:background="#03A9F4">
+        android:layout_height="wrap_content">
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guidelineStart"
@@ -27,14 +29,13 @@
 
         <ImageView
             android:id="@+id/ivImage"
-            android:layout_width="200dp"
-            android:layout_height="200dp"
-            android:scaleType="fitCenter"
+            android:layout_width="@dimen/pokemon_image_size"
+            android:layout_height="@dimen/pokemon_image_size"
+            android:scaleType="centerInside"
             app:layout_constraintBottom_toTopOf="@id/cardView"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@id/cardView"
-            app:layout_constraintVertical_bias="0.7"
             tools:src="@drawable/ic_pokeball" />
 
         <com.google.android.material.imageview.ShapeableImageView
@@ -49,9 +50,9 @@
             app:shapeAppearanceOverlay="@style/TopRoundedImageView" />
 
         <TextView
-            android:id="@+id/tvCharacterName"
+            android:id="@+id/tvPokemonName"
             style="@style/TextViewBigStyle"
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="@dimen/medium_dimen"
@@ -61,30 +62,35 @@
             app:layout_constraintTop_toBottomOf="@id/ivImage"
             tools:text="Squirtle" />
 
-        <GridView
-            android:id="@+id/gvTypes"
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvTypes"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/default_dimen"
-            android:gravity="center"
-            android:numColumns="auto_fit"
             android:orientation="horizontal"
-            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
             app:layout_constraintEnd_toEndOf="@id/guidelineEnd"
             app:layout_constraintStart_toStartOf="@id/guidelineStart"
-            app:layout_constraintTop_toBottomOf="@id/tvCharacterName"
+            app:layout_constraintTop_toBottomOf="@id/tvPokemonName"
             tools:listitem="@layout/rv_pokemon_type_item" />
 
         <com.google.android.material.tabs.TabLayout
             android:id="@+id/tabLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@id/gvTypes" />
+            android:layout_marginTop="@dimen/tiny_dimen"
+            app:layout_constraintTop_toBottomOf="@id/rvTypes"
+            app:tabIndicator="@drawable/shape_rounded_tab_selected"
+            app:tabIndicatorGravity="stretch"
+            app:tabRippleColor="@null"
+            app:tabSelectedTextColor="@color/white"
+            app:tabTextAppearance="@style/TabTextAppearance" />
 
         <androidx.viewpager2.widget.ViewPager2
             android:id="@+id/viewPager"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/small_dimen"
+            android:backgroundTint="@android:color/transparent"
             app:layout_constraintEnd_toEndOf="@id/guidelineEnd"
             app:layout_constraintStart_toStartOf="@id/guidelineStart"
             app:layout_constraintTop_toBottomOf="@id/tabLayout" />

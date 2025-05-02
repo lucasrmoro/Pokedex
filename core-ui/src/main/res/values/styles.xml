@@ -42,12 +42,37 @@
         <item name="android:textStyle">bold</item>
     </style>
 
+    <style name="TextViewSmallStyle" parent="TextViewDefaultStyle">
+        <item name="android:textSize">@dimen/small_text</item>
+    </style>
+
+    <style name="TextViewSmallBoldStyle" parent="TextViewBoldStyle">
+        <item name="android:textSize">@dimen/small_text</item>
+    </style>
+
+    <style name="TextViewDefaultDark450Style" parent="TextViewDefaultStyle">
+        <item name="android:textColor">@color/dark_450</item>
+    </style>
+
+    <style name="TextViewSmallDark450Style" parent="TextViewSmallStyle">
+        <item name="android:textColor">@color/dark_450</item>
+    </style>
+
+    <style name="TextViewWhiteSmallBoldStyle" parent="TextViewSmallBoldStyle">
+        <item name="android:textColor">@color/white</item>
+    </style>
+
     <style name="TextViewWhiteBoldStyle" parent="TextViewBoldStyle">
         <item name="android:textColor">@color/white</item>
     </style>
 
     <style name="TextViewBigStyle" parent="TextViewDefaultStyle">
         <item name="android:textSize">@dimen/big_text</item>
+    </style>
+
+    <style name="TabTextAppearance" parent="TextAppearance.Design.Tab">
+        <item name="textAllCaps">true</item>
+        <item name="android:textColor">@color/dark_400</item>
     </style>
 
     <style name="AppBarLayoutStyle" parent="ThemeOverlay.AppCompat.ActionBar">
@@ -71,7 +96,7 @@
     <style name="RoundedMaterialCardView">
         <item name="cardUseCompatPadding">true</item>
         <item name="cardCornerRadius">@dimen/small_dimen</item>
-        <item name="cardElevation">@dimen/tiniest_dimen</item>
+        <item name="cardElevation">@dimen/smallest_elevation</item>
         <item name="android:theme">@style/Theme.MaterialComponents.Light</item>
     </style>
 

@@ -23,7 +23,6 @@ class DataModulePlugin : BaseLibraryPlugin() {
             implementation(project(Modules.CORE))
             implementation(project(Modules.CORE_NETWORK))
             implementation(project(Modules.LOCAL_STORAGE))
-            implementation(project(Modules.DOMAIN))
             implementation(libs.timber)
             implementation(libs.bundles.retrofit)
             ksp(libs.koin.compiler)

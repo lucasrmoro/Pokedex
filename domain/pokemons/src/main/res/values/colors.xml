@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="pokemon_type_bug_start_gradient_color">#92BC2C</color>
+    <color name="pokemon_type_bug_end_gradient_color">#AFC836</color>
+
+    <color name="pokemon_type_dark_start_gradient_color">#595761</color>
+    <color name="pokemon_type_dark_end_gradient_color">#6E7587</color>
+
+    <color name="pokemon_type_dragon_start_gradient_color">#0C69C8</color>
+    <color name="pokemon_type_dragon_end_gradient_color">#0180C7</color>
+
+    <color name="pokemon_type_electric_start_gradient_color">#EDD53E</color>
+    <color name="pokemon_type_electric_end_gradient_color">#FBE273</color>
+
+    <color name="pokemon_type_fairy_start_gradient_color">#EC8CE5</color>
+    <color name="pokemon_type_fairy_end_gradient_color">#F3A7E7</color>
+
+    <color name="pokemon_type_fighting_start_gradient_color">#CE4265</color>
+    <color name="pokemon_type_fighting_end_gradient_color">#E74347</color>
+
+    <color name="pokemon_type_fire_start_gradient_color">#FB9B51</color>
+    <color name="pokemon_type_fire_end_gradient_color">#FBAE46</color>
+
+    <color name="pokemon_type_flying_start_gradient_color">#90A7DA</color>
+    <color name="pokemon_type_flying_end_gradient_color">#A6C2F2</color>
+
+    <color name="pokemon_type_ghost_start_gradient_color">#516AAC</color>
+    <color name="pokemon_type_ghost_end_gradient_color">#7773D4</color>
+
+    <color name="pokemon_type_grass_start_gradient_color">#5FBC51</color>
+    <color name="pokemon_type_grass_end_gradient_color">#5AC178</color>
+
+    <color name="pokemon_type_ground_start_gradient_color">#DC7545</color>
+    <color name="pokemon_type_ground_end_gradient_color">#D29463</color>
+
+    <color name="pokemon_type_ice_start_gradient_color">#70CCBD</color>
+    <color name="pokemon_type_ice_end_gradient_color">#8CDDD4</color>
+
+    <color name="pokemon_type_normal_start_gradient_color">#9298A4</color>
+    <color name="pokemon_type_normal_end_gradient_color">#A3A49E</color>
+
+    <color name="pokemon_type_poison_start_gradient_color">#A864C7</color>
+    <color name="pokemon_type_poison_end_gradient_color">#C261D4</color>
+
+    <color name="pokemon_type_psychic_start_gradient_color">#F66F71</color>
+    <color name="pokemon_type_psychic_end_gradient_color">#FE9F92</color>
+
+    <color name="pokemon_type_rock_start_gradient_color">#C5B489</color>
+    <color name="pokemon_type_rock_end_gradient_color">#D7CD90</color>
+
+    <color name="pokemon_type_steel_start_gradient_color">#52869D</color>
+    <color name="pokemon_type_steel_end_gradient_color">#58A6AA</color>
+
+    <color name="pokemon_type_water_start_gradient_color">#4A90DD</color>
+    <color name="pokemon_type_water_end_gradient_color">#6CBDE4</color>
+
+</resources>

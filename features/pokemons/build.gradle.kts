@@ -10,5 +10,5 @@ android {
 
 dependencies {
     implementation(project(Modules.Domain.POKEMONS))
-    implementation(libs.bundles.retrofit)
+    implementation(libs.flexbox)
 }

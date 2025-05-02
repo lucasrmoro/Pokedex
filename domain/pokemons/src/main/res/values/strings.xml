@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Types -->
+    <string name="bug">Bug</string>
+    <string name="dark">Dark</string>
+    <string name="dragon">Dragon</string>
+    <string name="electric">Electric</string>
+    <string name="fairy">Fairy</string>
+    <string name="fighting">Fighting</string>
+    <string name="fire">Fire</string>
+    <string name="flying">Flying</string>
+    <string name="ghost">Ghost</string>
+    <string name="grass">Grass</string>
+    <string name="ground">Ground</string>
+    <string name="ice">Ice</string>
+    <string name="normal">Normal</string>
+    <string name="poison">Poison</string>
+    <string name="psychic">Psychic</string>
+    <string name="rock">Rock</string>
+    <string name="steel">Steel</string>
+    <string name="water">Water</string>
+
+    <!-- Stats -->
+    <string name="hp">HP</string>
+    <string name="atk">ATK</string>
+    <string name="def">DEF</string>
+    <string name="satk">SATK</string>
+    <string name="sdef">SDEF</string>
+    <string name="spd">SPD</string>
+
+</resources>

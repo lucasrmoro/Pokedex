@@ -1,7 +1,7 @@
 package br.com.pokedex.core_ui.adapter.callbacks
 
 import br.com.pokedex.core_ui.adapter.callbacks.generic.PokedexGenericAdapterCallback
-import br.com.pokedex.domain.adapter.model.pokemons.PokemonItem
+import br.com.pokedex.pokemons.model.PokemonItem
 
 interface PokemonsListAdapterCallbacks : PokedexGenericAdapterCallback {
 

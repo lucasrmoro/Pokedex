@@ -12,7 +12,7 @@ import br.com.pokedex.core_ui.ext.setMenu
 import br.com.pokedex.core_ui.ext.setOnQueryTextChangeDebouncing
 import br.com.pokedex.core_ui.ext.show
 import br.com.pokedex.core_ui.ext.showToast
-import br.com.pokedex.domain.adapter.model.pokemons.PokemonItem
+import br.com.pokedex.pokemons.model.PokemonItem
 import br.com.pokedex.pokemons.R
 import br.com.pokedex.pokemons.databinding.FragPokemonsListBinding
 import br.com.pokedex.pokemons.details.activity.PokemonDetailsActivity

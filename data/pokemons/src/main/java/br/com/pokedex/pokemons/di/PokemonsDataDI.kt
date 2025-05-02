@@ -20,7 +20,7 @@ private val module = module {
     single<PokemonsRemoteDataSource> { PokemonsRemoteDataSourceImpl(pokemonsService = get()) }
 
     // Mappers
-    single<PokemonMapper> { PokemonMapperImpl() }
+    single<PokemonMapper> { PokemonMapperImpl(dispatcher = dispatcherIO) }
 
     // Repositories
     single<PokemonsRepository> {

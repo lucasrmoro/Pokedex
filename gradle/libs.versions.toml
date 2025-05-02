@@ -22,6 +22,7 @@ security-crypto = "1.1.0-alpha06"
 okhttp = "4.10.0"
 glide = "4.16.0"
 palette = "1.0.0"
+flexbox = "3.0.0"
 
 [libraries]
 # Gradle
@@ -78,6 +79,9 @@ glide = { group = "com.github.bumptech.glide", name = "glide", version.ref = "gl
 
 # Palette
 palette = { group = "androidx.palette", name = "palette-ktx", version.ref = "palette" }
+
+# Flexbox
+flexbox = { group = "com.google.android.flexbox", name = "flexbox", version.ref = "flexbox" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

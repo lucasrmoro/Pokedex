@@ -7,7 +7,7 @@ import retrofit2.HttpException
 
 internal fun Throwable?.toPokedexException() = PokedexException(
     message = this?.message.orEmpty(),
-    pokeAPIException = (this as? HttpException).toApiException()
+    apiException = (this as? HttpException).toApiException()
 )
 
 private fun HttpException?.toApiException() = runCatching {

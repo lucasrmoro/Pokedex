@@ -10,7 +10,7 @@ import br.com.pokedex.core.ext.onError
 import br.com.pokedex.core.ext.onSuccess
 import br.com.pokedex.core_ui.components.recyclerView.PokedexEndlessRecyclerViewCallbacks
 import br.com.pokedex.core_ui.provider.ResourcesProvider
-import br.com.pokedex.domain.adapter.model.pokemons.PokemonItem
+import br.com.pokedex.pokemons.model.PokemonItem
 import br.com.pokedex.pokemons.R
 import br.com.pokedex.pokemons.useCase.list.get.GetPokemonsByNameUseCase
 import br.com.pokedex.pokemons.useCase.list.getAll.GetAllPokemonsUseCase
