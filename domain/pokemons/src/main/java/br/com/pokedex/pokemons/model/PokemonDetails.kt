@@ -15,5 +15,6 @@ data class PokemonDetails(
     val types: List<PokemonTypeItem>,
     val weaknesses: List<PokemonTypeItem>,
     val resistances: List<PokemonTypeItem>,
-    val immunities: List<PokemonTypeItem>
+    val immunities: List<PokemonTypeItem>,
+    val abilities: List<PokemonAbilityItem>
 )

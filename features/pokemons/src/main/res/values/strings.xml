@@ -17,5 +17,6 @@
     <string name="weak_to">Weak to</string>
     <string name="resistant_to">Resistant to</string>
     <string name="immune_to">Immune to</string>
+    <string name="abilities">Abilities</string>
 
 </resources>

@@ -10,6 +10,7 @@ import br.com.pokedex.domain_pokemons.R
 import br.com.pokedex.pokemons.databinding.FragPokemonStatsTabBinding
 import br.com.pokedex.pokemons.details.viewModel.PokemonDetailsViewModel
 import br.com.pokedex.pokemons.details.viewModel.PokemonStatsTabViewModel
+import br.com.pokedex.pokemons.model.PokemonAbilityItem
 import br.com.pokedex.pokemons.model.PokemonDetails
 import br.com.pokedex.pokemons.model.PokemonStatItem
 import com.google.android.flexbox.FlexDirection
@@ -26,14 +27,16 @@ internal class PokemonStatsTabFragment private constructor() :
     private val weaknessesAdapter = PokedexGenericAdapter()
     private val resistancesAdapter = PokedexGenericAdapter()
     private val immunitiesAdapter = PokedexGenericAdapter()
+    private val abilitiesAdapter = PokedexGenericAdapter()
 
     override fun setupViews() = with(binding) {
         rvStats.adapter = statsAdapter
         setupObservers()
     }
 
-    override fun setupObservers() {
+    override fun setupObservers() = with(viewModel) {
         activityViewModel.onFetchDetails.observe(viewLifecycleOwner, ::onFetchDetails)
+        onGetAbilitiesDescription.observe(viewLifecycleOwner, ::onGetAbilitiesDescription)
     }
 
     private fun onFetchDetails(result: Pair<PokemonDetails?, String?>) {
@@ -43,7 +46,13 @@ internal class PokemonStatsTabFragment private constructor() :
             setupWeaknesses()
             setupResistances()
             setupImmunities()
+            setupAbilities()
+            viewModel.getAbilitiesDescriptions(this.abilities)
         }
+    }
+
+    private fun onGetAbilitiesDescription(abilities: List<PokemonAbilityItem>) {
+        abilitiesAdapter.submitList(abilities)
     }
 
     private fun PokemonDetails.setupStats() {
@@ -67,7 +76,7 @@ internal class PokemonStatsTabFragment private constructor() :
     }
 
     private fun PokemonDetails.setupColors() = with(binding) {
-        listOf(tvWeaknesses, tvResistances, tvImmunities).forEach { textView ->
+        listOf(tvWeaknesses, tvResistances, tvImmunities, tvAbilities).forEach { textView ->
             context?.let {
                 textView.setTextColor(it.getColor(types.first().type.startGradientColor))
             }
@@ -84,6 +93,11 @@ internal class PokemonStatsTabFragment private constructor() :
 
     private fun PokemonDetails.setupImmunities() = with(binding) {
         setupAttributes(tvImmunities, rvImmunities, immunities, immunitiesAdapter)
+    }
+
+    private fun PokemonDetails.setupAbilities() = with(binding) {
+        rvAbilities.adapter = abilitiesAdapter
+        abilitiesAdapter.submitList(abilities)
     }
 
     private fun setupAttributes(

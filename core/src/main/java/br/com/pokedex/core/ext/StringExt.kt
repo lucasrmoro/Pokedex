@@ -35,6 +35,10 @@ val String.Companion.BAR
 val String.Companion.HASH
     get() = "#"
 
+fun String?.uppercaseFirstChar() = orEmpty().replaceFirstChar { it.uppercase() }
+
+fun String?.replaceLineBreakBySpace(): String = orEmpty().replace(Regex("\\r?\\n"), String.SPACE)
+
 fun String?.toMoney(fractionDigits: Int = Int.TWO) = NumberFormat.getCurrencyInstance().apply {
     DecimalFormatSymbols.getInstance().also {
         it.currencySymbol = String.EMPTY
