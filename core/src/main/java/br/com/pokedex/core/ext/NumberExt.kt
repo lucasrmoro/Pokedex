@@ -77,6 +77,9 @@ val Long.Companion.FIVE
 val Long.Companion.ONE_HUNDRED
     get() = 100L
 
+val Long.Companion.ONE_SECOND_IN_MILLIS
+    get() = 1_000L
+
 val Long.Companion.TWO_SECONDS_IN_MILLIS
     get() = 2_000L
 

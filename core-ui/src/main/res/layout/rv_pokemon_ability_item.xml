@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/tvName"
+        style="@style/TextViewBoldStyle"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:text="Ability Name" />
+
+    <com.faltenreich.skeletonlayout.SkeletonLayout
+        android:id="@+id/skeletonDescription"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/tiniest_dimen">
+
+        <TextView
+            android:id="@+id/tvDescription"
+            style="@style/TextViewSmallDark450Style"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+    </com.faltenreich.skeletonlayout.SkeletonLayout>
+
+    <View
+        android:id="@+id/vDivider"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/default_stroke_size"
+        android:layout_marginVertical="@dimen/tiny_dimen"
+        android:background="@color/dark_200"
+        android:visibility="gone"
+        tools:visibility="visible" />
+
+</LinearLayout>

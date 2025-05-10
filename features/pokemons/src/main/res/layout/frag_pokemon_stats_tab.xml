@@ -28,6 +28,7 @@
         android:id="@+id/rvWeaknesses"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/tiny_dimen"
         android:overScrollMode="never"
         app:layout_constraintTop_toBottomOf="@id/tvWeaknesses" />
 
@@ -44,6 +45,7 @@
         android:id="@+id/rvResistances"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/tiny_dimen"
         android:overScrollMode="never"
         app:layout_constraintTop_toBottomOf="@id/tvResistances" />
 
@@ -60,7 +62,26 @@
         android:id="@+id/rvImmunities"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/tiny_dimen"
         android:overScrollMode="never"
         app:layout_constraintTop_toBottomOf="@id/tvImmunities" />
+
+    <TextView
+        android:id="@+id/tvAbilities"
+        style="@style/TextViewMediumBoldStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/small_dimen"
+        android:text="@string/abilities"
+        app:layout_constraintTop_toBottomOf="@id/rvImmunities" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvAbilities"
+        style="@style/RecyclerViewDefaultStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/tiny_dimen"
+        android:overScrollMode="never"
+        app:layout_constraintTop_toBottomOf="@id/tvAbilities" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -10,12 +10,18 @@ import br.com.pokedex.core.ext.ZERO_DOT_NINE
 import br.com.pokedex.core.ext.ZERO_DOT_ONE
 import br.com.pokedex.core.ext.downloadImage
 import br.com.pokedex.core.ext.orZero
+import br.com.pokedex.core.ext.replaceLineBreakBySpace
 import br.com.pokedex.core.ext.update
+import br.com.pokedex.core.ext.uppercaseFirstChar
 import br.com.pokedex.pokemons.dto.DamageRelationDTO
 import br.com.pokedex.pokemons.dto.DamageRelationsDTO
+import br.com.pokedex.pokemons.dto.PokemonAbilitiesDTO
+import br.com.pokedex.pokemons.dto.PokemonAbilityDTO
 import br.com.pokedex.pokemons.dto.PokemonDTO
 import br.com.pokedex.pokemons.dto.PokemonDetailsDTO
 import br.com.pokedex.pokemons.dto.PokemonsListDTO
+import br.com.pokedex.pokemons.model.PokemonAbility
+import br.com.pokedex.pokemons.model.PokemonAbilityItem
 import br.com.pokedex.pokemons.model.PokemonDetails
 import br.com.pokedex.pokemons.model.PokemonItem
 import br.com.pokedex.pokemons.model.PokemonListItems
@@ -48,12 +54,13 @@ class PokemonMapperImpl(
         damageRelations: List<DamageRelationsDTO>
     ): PokemonDetails? = with(dto) {
         val image = getImageUrl(id).downloadImage(dispatcher) ?: return null
+        val mainType = types.orEmpty().firstOrNull()?.type?.name?.toPokemonType() ?: return null
         val effectiveness = damageRelations.calculateTypesEffectiveness()
 
         PokemonDetails(
             id = id.orZero(),
             image = image,
-            name = name?.replaceFirstChar { char -> char.uppercase() }.orEmpty(),
+            name = name.uppercaseFirstChar(),
             hp = getStat(HP),
             atk = getStat(ATK),
             def = getStat(DEF),
@@ -67,13 +74,24 @@ class PokemonMapperImpl(
             resistances = effectiveness.filterValues {
                 it in Double.ZERO_DOT_ONE..Double.ZERO_DOT_NINE
             }.keys.map(::PokemonTypeItem),
-            immunities = effectiveness.filterValues { it == Double.ZERO }.keys.map(::PokemonTypeItem)
+            immunities = effectiveness.filterValues { it == Double.ZERO }.keys.map(::PokemonTypeItem),
+            abilities = abilities.toAbilitiesItem(mainType)
         )
     }
 
+    override fun toPokemonAbility(dto: Flow<PokemonAbilitiesDTO>): Flow<PokemonAbility> =
+        dto.update {
+            PokemonAbility(
+                name = name.uppercaseFirstChar(),
+                description = flavorTextEntries?.find {
+                    it.language?.name == EN && it.versionGroup?.name == XY_GEN
+                }?.flavorText.replaceLineBreakBySpace()
+            )
+        }
+
     private fun PokemonDTO.toPokemonItem() = PokemonItem(
         id = url.getPokemonIndex(),
-        name = name.orEmpty().replaceFirstChar { char -> char.uppercase() },
+        name = name.uppercaseFirstChar(),
         imageUrl = getImageUrl(url.getPokemonIndex())
     )
 
@@ -118,6 +136,14 @@ class PokemonMapperImpl(
         return typeEffectiveness
     }
 
+    private fun List<PokemonAbilityDTO>?.toAbilitiesItem(type: PokemonType) =
+        orEmpty().filter { it.ability?.name.isNullOrBlank().not() }.map {
+            PokemonAbilityItem(
+                ability = PokemonAbility(name = it.ability?.name.uppercaseFirstChar()),
+                nameColor = type.startGradientColor
+            )
+        }
+
     companion object {
         private const val HP = "hp"
         private const val ATK = "attack"
@@ -125,5 +151,7 @@ class PokemonMapperImpl(
         private const val SATK = "special-attack"
         private const val SDEF = "special-defense"
         private const val SPD = "speed"
+        private const val XY_GEN = "x-y"
+        private const val EN = "en"
     }
 }

@@ -1,5 +1,6 @@
 package br.com.pokedex.pokemons.remote
 
+import br.com.pokedex.pokemons.dto.PokemonAbilitiesDTO
 import br.com.pokedex.pokemons.dto.PokemonDetailsDTO
 import br.com.pokedex.pokemons.dto.PokemonTypeDetailsDTO
 import br.com.pokedex.pokemons.dto.PokemonsListDTO
@@ -11,5 +12,6 @@ interface PokemonsRemoteDataSource {
     suspend fun getPokemonDetails(name: String): Flow<PokemonDetailsDTO>
     suspend fun getPokemonDetails(id: Int): Flow<PokemonDetailsDTO>
     suspend fun getPokemonTypeDetails(typeName: String): Flow<PokemonTypeDetailsDTO>
+    suspend fun getPokemonAbilities(name: String): Flow<PokemonAbilitiesDTO>
 
 }

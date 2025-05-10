@@ -16,4 +16,5 @@ dependencies {
     implementation(libs.palette)
     implementation(libs.bundles.android)
     implementation(libs.bundles.koin)
+    implementation(libs.skeletonLayout)
 }

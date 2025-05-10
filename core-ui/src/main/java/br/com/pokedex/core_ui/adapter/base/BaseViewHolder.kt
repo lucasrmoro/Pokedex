@@ -17,7 +17,7 @@ abstract class BaseViewHolder<T : AdapterItem, VB : ViewBinding>(private val bin
     protected val resources: Resources
         get() = context.resources
 
-    abstract fun onBind(item: T)
+    open fun onBind(item: T) {}
 
     protected fun bind(block: VB.() -> Unit) {
         block(binding)

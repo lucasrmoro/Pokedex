@@ -5,6 +5,7 @@ import br.com.pokedex.core.ext.collectResultSafely
 import br.com.pokedex.core.ext.execute
 import br.com.pokedex.core.ext.update
 import br.com.pokedex.pokemons.mapper.PokemonMapper
+import br.com.pokedex.pokemons.model.PokemonAbility
 import br.com.pokedex.pokemons.model.PokemonDetails
 import br.com.pokedex.pokemons.model.PokemonListItems
 import br.com.pokedex.pokemons.remote.PokemonsRemoteDataSource
@@ -48,6 +49,11 @@ class PokemonsRepositoryImpl(
                     damageRelations = types.mapNotNull { it?.damageRelations }
                 )
             }
+        }
+
+    override suspend fun getPokemonAbility(name: String): Flow<PokemonAbility> =
+        dispatcher.execute {
+            pokemonMapper.toPokemonAbility(pokemonsRemoteDataSource.getPokemonAbilities(name))
         }
 
     private suspend fun getPokemonsDetails(id: Int) = pokemonsRemoteDataSource.getPokemonDetails(id)

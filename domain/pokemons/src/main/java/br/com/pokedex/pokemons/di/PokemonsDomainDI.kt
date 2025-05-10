@@ -1,5 +1,7 @@
 package br.com.pokedex.pokemons.di
 
+import br.com.pokedex.pokemons.useCase.ability.GetPokemonAbilityUseCase
+import br.com.pokedex.pokemons.useCase.ability.GetPokemonAbilityUseCaseImpl
 import br.com.pokedex.pokemons.useCase.details.GetPokemonDetailsUseCase
 import br.com.pokedex.pokemons.useCase.details.GetPokemonDetailsUseCaseImpl
 import br.com.pokedex.pokemons.useCase.list.get.GetPokemonsByNameUseCase
@@ -13,4 +15,5 @@ val pokemonsDomainModule = module {
     factory<GetPokemonDetailsUseCase> { GetPokemonDetailsUseCaseImpl(pokemonsRepository = get()) }
     factory<GetPokemonsByNameUseCase> { GetPokemonsByNameUseCaseImpl(pokemonsRepository = get()) }
     factory<GetAllPokemonsUseCase> { GetAllPokemonsUseCaseImpl(pokemonsRepository = get()) }
+    factory<GetPokemonAbilityUseCase> { GetPokemonAbilityUseCaseImpl(pokemonsRepository = get()) }
 }

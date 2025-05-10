@@ -2,6 +2,7 @@ package br.com.pokedex.pokemons.remote
 
 import br.com.pokedex.core.base.dataSource.BaseDataSource
 import br.com.pokedex.core.ext.ONE
+import br.com.pokedex.pokemons.dto.PokemonAbilitiesDTO
 import br.com.pokedex.pokemons.dto.PokemonDetailsDTO
 import br.com.pokedex.pokemons.dto.PokemonTypeDetailsDTO
 import br.com.pokedex.pokemons.dto.PokemonsListDTO
@@ -26,5 +27,8 @@ class PokemonsRemoteDataSourceImpl(
 
     override suspend fun getPokemonTypeDetails(typeName: String): Flow<PokemonTypeDetailsDTO> =
         call { pokemonsService.getPokemonTypeDetails(typeName) }
+
+    override suspend fun getPokemonAbilities(name: String): Flow<PokemonAbilitiesDTO> =
+        call { pokemonsService.getPokemonAbilities(name) }
 
 }
