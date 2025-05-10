@@ -14,5 +14,8 @@
     <string name="stats">Stats</string>
     <string name="evolutions">Evolutions</string>
     <string name="unable_to_load_pokemon_details">Unable to fetch Pokemon details</string>
+    <string name="weak_to">Weak to</string>
+    <string name="resistant_to">Resistant to</string>
+    <string name="immune_to">Immune to</string>
 
 </resources>

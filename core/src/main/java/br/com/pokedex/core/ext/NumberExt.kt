@@ -37,7 +37,7 @@ val Int.Companion.TWO_HUNDRED_FIFTY_FIVE
 fun Int?.orZero() = this ?: Int.ZERO
 
 val Int.Companion.random
-    get() = (Int.ZERO..Int.MAX_VALUE).random()
+    get() = (ZERO..MAX_VALUE).random()
 
 /**
  * Double
@@ -45,6 +45,21 @@ val Int.Companion.random
 
 val Double.Companion.ZERO
     get() = 0.0
+
+val Double.Companion.ZERO_DOT_ONE
+    get() = 0.1
+
+val Double.Companion.ZERO_DOT_FIVE
+    get() = 0.5
+
+val Double.Companion.ZERO_DOT_NINE
+    get() = 0.9
+
+val Double.Companion.ONE
+    get() = 1.0
+
+val Double.Companion.TWO
+    get() = 2.0
 
 val Double.Companion.ONE_HUNDRED
     get() = 100.0

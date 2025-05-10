@@ -8,7 +8,7 @@ internal class GetPokemonDetailsUseCaseImpl(
     private val pokemonsRepository: PokemonsRepository
 ) : GetPokemonDetailsUseCase {
 
-    override suspend fun invoke(id: Int): Flow<PokemonDetails> =
+    override suspend fun invoke(id: Int): Flow<PokemonDetails?> =
         pokemonsRepository.getPokemonDetails(id)
 
 }

@@ -8,6 +8,6 @@ interface PokemonsRepository {
 
     suspend fun getPokemons(page: Int, itemsPerPage: Int): Flow<PokemonListItems>
     suspend fun getPokemonBy(name: String): Flow<PokemonListItems>
-    suspend fun getPokemonDetails(id: Int): Flow<PokemonDetails>
+    suspend fun getPokemonDetails(id: Int): Flow<PokemonDetails?>
 
 }
