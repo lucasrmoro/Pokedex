@@ -50,6 +50,10 @@
         <item name="android:textSize">@dimen/small_text</item>
     </style>
 
+    <style name="TextViewMediumBoldStyle" parent="TextViewBoldStyle">
+        <item name="android:textSize">@dimen/medium_text</item>
+    </style>
+
     <style name="TextViewDefaultDark450Style" parent="TextViewDefaultStyle">
         <item name="android:textColor">@color/dark_450</item>
     </style>

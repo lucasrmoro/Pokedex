@@ -10,7 +10,7 @@
     <dimen name="biggest_dimen">48dp</dimen>
     <dimen name="margin_dimen">64dp</dimen>
     <dimen name="big_margin_dimen">96dp</dimen>
-    <dimen name="biggest_margin_dimen">156dp</dimen>
+    <dimen name="biggest_margin_dimen">124dp</dimen>
 
     <!-- Text Size -->
     <dimen name="smallest_text">10sp</dimen>

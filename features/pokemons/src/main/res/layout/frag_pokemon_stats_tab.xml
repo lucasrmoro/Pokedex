@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
@@ -10,7 +11,56 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:overScrollMode="never"
+        app:layout_constraintTop_toTopOf="parent"
         tools:itemCount="6"
         tools:listitem="@layout/rv_pokemon_stat_item" />
 
-</LinearLayout>
+    <TextView
+        android:id="@+id/tvWeaknesses"
+        style="@style/TextViewMediumBoldStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/small_dimen"
+        android:text="@string/weak_to"
+        app:layout_constraintTop_toBottomOf="@id/rvStats" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvWeaknesses"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:overScrollMode="never"
+        app:layout_constraintTop_toBottomOf="@id/tvWeaknesses" />
+
+    <TextView
+        android:id="@+id/tvResistances"
+        style="@style/TextViewMediumBoldStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/small_dimen"
+        android:text="@string/resistant_to"
+        app:layout_constraintTop_toBottomOf="@id/rvWeaknesses" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvResistances"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:overScrollMode="never"
+        app:layout_constraintTop_toBottomOf="@id/tvResistances" />
+
+    <TextView
+        android:id="@+id/tvImmunities"
+        style="@style/TextViewMediumBoldStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/small_dimen"
+        android:text="@string/immune_to"
+        app:layout_constraintTop_toBottomOf="@id/rvResistances" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvImmunities"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:overScrollMode="never"
+        app:layout_constraintTop_toBottomOf="@id/tvImmunities" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

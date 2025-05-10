@@ -5,6 +5,6 @@ import kotlinx.coroutines.flow.Flow
 
 interface GetPokemonDetailsUseCase {
 
-    suspend operator fun invoke(id: Int): Flow<PokemonDetails>
+    suspend operator fun invoke(id: Int): Flow<PokemonDetails?>
 
 }

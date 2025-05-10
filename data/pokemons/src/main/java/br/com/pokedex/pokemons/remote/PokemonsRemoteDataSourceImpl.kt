@@ -3,6 +3,7 @@ package br.com.pokedex.pokemons.remote
 import br.com.pokedex.core.base.dataSource.BaseDataSource
 import br.com.pokedex.core.ext.ONE
 import br.com.pokedex.pokemons.dto.PokemonDetailsDTO
+import br.com.pokedex.pokemons.dto.PokemonTypeDetailsDTO
 import br.com.pokedex.pokemons.dto.PokemonsListDTO
 import kotlinx.coroutines.flow.Flow
 
@@ -22,5 +23,8 @@ class PokemonsRemoteDataSourceImpl(
 
     override suspend fun getPokemonDetails(id: Int): Flow<PokemonDetailsDTO> =
         call { pokemonsService.getPokemonDetails(id) }
+
+    override suspend fun getPokemonTypeDetails(typeName: String): Flow<PokemonTypeDetailsDTO> =
+        call { pokemonsService.getPokemonTypeDetails(typeName) }
 
 }
