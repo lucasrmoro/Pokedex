@@ -13,7 +13,6 @@ object Modules {
         object Pokemons {
             private const val POKEMONS = "$ROOT:pokemons"
 
-            const val DI = "$POKEMONS:di"
             const val DATA = "$POKEMONS:data"
             const val DOMAIN = "$POKEMONS:domain"
             const val PRESENTATION = "$POKEMONS:presentation"
