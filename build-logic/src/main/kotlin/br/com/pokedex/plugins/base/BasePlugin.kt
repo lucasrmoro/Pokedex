@@ -28,7 +28,6 @@ abstract class BasePlugin : Plugin<Project> {
     protected val Project.libs: LibrariesForLibs
         get() = extensions.getByType()
 
-    open val setAndroidNamespace: Boolean = true
     abstract fun setup(project: Project)
 
     override fun apply(project: Project) = with(project) {
@@ -66,7 +65,6 @@ abstract class BasePlugin : Plugin<Project> {
     }
 
     private fun BaseExtension.setupAndroidNamespace(project: Project) {
-        if (setAndroidNamespace.not()) return
         namespace = when (this) {
             is ApplicationExtension -> ProjectConfig.APP_ID
             else -> ProjectConfig.APP_ID.plus(project.path)
