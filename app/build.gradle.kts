@@ -4,8 +4,6 @@ plugins {
     alias(libs.plugins.pokedex.android.app)
 }
 
-quadrantConfig.generateByDefault = false
-
 dependencies {
     implementation(project(Modules.CORE_NETWORK))
     implementation(project(Modules.LOCAL_STORAGE))

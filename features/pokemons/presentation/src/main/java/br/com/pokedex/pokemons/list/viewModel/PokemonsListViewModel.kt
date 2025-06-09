@@ -15,7 +15,7 @@ import br.com.pokedex.pokemons.model.PokemonItem
 import br.com.pokedex.pokemons.useCase.list.get.GetPokemonsByNameUseCase
 import br.com.pokedex.pokemons.useCase.list.getAll.GetAllPokemonsUseCase
 
-internal class PokemonsListViewModel(
+class PokemonsListViewModel(
     private val resourcesProvider: ResourcesProvider,
     private val getAllPokemonsUseCase: GetAllPokemonsUseCase,
     private val getPokemonsByNameUseCase: GetPokemonsByNameUseCase,
