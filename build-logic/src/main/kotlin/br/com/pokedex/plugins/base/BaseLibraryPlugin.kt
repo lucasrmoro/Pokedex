@@ -11,12 +11,12 @@ abstract class BaseLibraryPlugin : BasePlugin() {
     abstract fun setupDependencies(project: Project)
 
     @CallSuper
-    override fun setup(project: Project) {
-        setupPlugins(project)
-        project.extensions.configure<LibraryExtension> {
+    override fun setup(project: Project) = with(project) {
+        setupPlugins(this)
+        extensions.configure<LibraryExtension> {
             setupProjectConfig(this)
         }
-        setupDependencies(project)
+        setupDependencies(this)
     }
 
 }

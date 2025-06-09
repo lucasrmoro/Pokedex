@@ -20,7 +20,6 @@ object ProjectConfig {
 internal object Plugins {
     const val ANDROID_APPLICATION = "com.android.application"
     const val ANDROID_LIBRARY = "com.android.library"
-    const val ANDROID_DYNAMIC_FEATURE = "com.android.dynamic-feature"
     const val KOTLIN_ANDROID = "org.jetbrains.kotlin.android"
     const val KSP = "com.google.devtools.ksp"
     const val QUADRANT = "com.gaelmarhic.quadrant"

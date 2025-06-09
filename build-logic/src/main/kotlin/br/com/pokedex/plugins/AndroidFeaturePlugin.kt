@@ -6,6 +6,7 @@ import br.com.pokedex.ext.ksp
 import br.com.pokedex.modules.Modules
 import br.com.pokedex.plugins.base.BasePlugin
 import com.android.build.api.dsl.DynamicFeatureExtension
+import com.android.build.api.dsl.LibraryExtension
 import org.gradle.api.Project
 import org.gradle.kotlin.dsl.apply
 import org.gradle.kotlin.dsl.configure
@@ -20,18 +21,17 @@ class AndroidFeaturePlugin : BasePlugin() {
     }
 
     private fun Project.setupPlugins() {
-        apply(plugin = Plugins.ANDROID_DYNAMIC_FEATURE)
+        apply(plugin = Plugins.ANDROID_LIBRARY)
         apply(plugin = Plugins.KOTLIN_ANDROID)
         apply(plugin = Plugins.KSP)
         apply(plugin = Plugins.QUADRANT)
     }
 
-    private fun Project.setupConfig() = extensions.configure<DynamicFeatureExtension> {
+    private fun Project.setupConfig() = extensions.configure<LibraryExtension> {
         setupProjectConfig(this)
     }
 
     private fun Project.setupDependencies() = dependencies {
-        implementation(project(Modules.APP))
         implementation(project(Modules.CORE))
         implementation(project(Modules.CORE_UI))
         implementation(libs.material)

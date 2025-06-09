@@ -3,10 +3,6 @@ plugins {
     alias(libs.plugins.ksp)
 }
 
-android {
-    namespace = "br.com.pokedex.core"
-}
-
 dependencies {
     implementation(libs.bundles.android)
     implementation(libs.bundles.retrofit)
