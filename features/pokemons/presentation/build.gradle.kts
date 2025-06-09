@@ -6,5 +6,6 @@ plugins {
 
 dependencies {
     implementation(project(Modules.Feature.Pokemons.DOMAIN))
+    implementation(project(Modules.DiLoader.Pokemons.API))
     implementation(libs.flexbox)
 }

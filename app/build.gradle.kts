@@ -1,4 +1,7 @@
 import br.com.pokedex.modules.Modules
+import br.com.pokedex.ext.implementationAll
+import br.com.pokedex.ext.projects
+import br.com.pokedex.modules.Modules.DiLoader
 
 plugins {
     alias(libs.plugins.pokedex.android.app)
@@ -7,7 +10,7 @@ plugins {
 dependencies {
     implementation(project(Modules.CORE_NETWORK))
     implementation(project(Modules.LOCAL_STORAGE))
-    implementation(project(Modules.Feature.Pokemons.DATA))
+    implementationAll(projects(DiLoader.Pokemons.API, DiLoader.Pokemons.IMPL))
     implementation(project(Modules.Feature.Pokemons.PRESENTATION))
     implementation(libs.timber)
     implementation(libs.bundles.koin)

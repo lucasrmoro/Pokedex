@@ -100,6 +100,7 @@ pokedex-android-library = { id = "pokedex.android.library" }
 pokedex-android-feature = { id = "pokedex.android.feature" }
 pokedex-data = { id = "pokedex.data" }
 pokedex-domain = { id = "pokedex.domain" }
+pokedex-diLoader = { id = "pokedex.diLoader" }
 
 [bundles]
 android = ["androidx-core-ktx", "androidx-appcompat", "androidx-espresso-core", "androidx-junit", "androidx-navigation-ui-ktx", "androidx-navigation-runtime-ktx", "androidx-navigation-fragment"]

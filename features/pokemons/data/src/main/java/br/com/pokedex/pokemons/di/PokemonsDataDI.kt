@@ -9,10 +9,9 @@ import br.com.pokedex.pokemons.remote.PokemonsRemoteDataSourceImpl
 import br.com.pokedex.pokemons.remote.PokemonsService
 import br.com.pokedex.pokemons.repository.PokemonsRepository
 import br.com.pokedex.pokemons.repository.PokemonsRepositoryImpl
-import org.koin.core.context.loadKoinModules
 import org.koin.dsl.module
 
-private val module = module {
+val pokemonsDataModule = module {
     // Services
     single { retrofit.create(PokemonsService::class.java) }
 
@@ -29,11 +28,5 @@ private val module = module {
             pokemonMapper = get(),
             dispatcher = dispatcherIO
         )
-    }
-}
-
-object PokemonsDataModule {
-    fun init() {
-        loadKoinModules(module + pokemonsDomainModule)
     }
 }

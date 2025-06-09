@@ -3,17 +3,19 @@ package br.com.pokedex.pokemons.details.activity
 import android.os.Bundle
 import br.com.pokedex.core_ui.base.activity.BaseContainerActivity
 import br.com.pokedex.core_ui.ext.extra
-import br.com.pokedex.pokemons.details.di.PokemonDetailsModule
+import br.com.pokedex.pokemons.PokemonsDI
 import br.com.pokedex.pokemons.details.fragment.PokemonDetailsFragment
 import br.com.pokedex.pokemons.details.viewModel.PokemonDetailsViewModel
+import org.koin.android.ext.android.inject
 
 internal class PokemonDetailsActivity : BaseContainerActivity<PokemonDetailsViewModel>() {
 
+    private val pokemonsDI by inject<PokemonsDI>()
     private val pokemonIdExtra by extra { getInt(POKEMON_ID) }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        PokemonDetailsModule.init()
+        pokemonsDI.load()
         navigate(PokemonDetailsFragment.newInstance(pokemonIdExtra))
     }
 

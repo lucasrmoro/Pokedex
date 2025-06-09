@@ -11,9 +11,23 @@ object Modules {
         private const val ROOT = ":features"
 
         object Pokemons {
-            const val DATA = "$ROOT:pokemons:data"
-            const val DOMAIN = "$ROOT:pokemons:domain"
-            const val PRESENTATION = "$ROOT:pokemons:presentation"
+            private const val POKEMONS = "$ROOT:pokemons"
+
+            const val DI = "$POKEMONS:di"
+            const val DATA = "$POKEMONS:data"
+            const val DOMAIN = "$POKEMONS:domain"
+            const val PRESENTATION = "$POKEMONS:presentation"
+        }
+    }
+
+    object DiLoader {
+        private const val ROOT = ":di-loader"
+
+        object Pokemons {
+            private const val POKEMONS = "$ROOT:pokemons"
+
+            const val API = "$POKEMONS:api"
+            const val IMPL = "$POKEMONS:impl"
         }
     }
 }

@@ -45,5 +45,9 @@ gradlePlugin {
             id = libs.plugins.pokedex.android.feature.get().pluginId
             implementationClass = "br.com.pokedex.plugins.AndroidFeaturePlugin"
         }
+        register("diLoader") {
+            id = libs.plugins.pokedex.diLoader.get().pluginId
+            implementationClass = "br.com.pokedex.plugins.DILoaderModulePlugin"
+        }
     }
 }
