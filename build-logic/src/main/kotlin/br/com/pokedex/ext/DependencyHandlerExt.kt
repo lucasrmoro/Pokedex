@@ -6,6 +6,7 @@ import org.gradle.api.artifacts.MinimalExternalModuleDependency
 import org.gradle.api.artifacts.ProjectDependency
 import org.gradle.api.provider.Provider
 import org.gradle.kotlin.dsl.DependencyHandlerScope
+import org.gradle.kotlin.dsl.project
 
 private const val IMPLEMENTATION = "implementation"
 private const val API = "api"
@@ -44,3 +45,11 @@ fun DependencyHandlerScope.ksp(impl: String) {
 fun DependencyHandlerScope.ksp(dependency: Provider<MinimalExternalModuleDependency>) {
     add(KSP, dependency.get())
 }
+
+fun DependencyHandlerScope.implementationAll(dependencies: List<ProjectDependency>) {
+    dependencies.forEach(::implementation)
+}
+
+fun DependencyHandlerScope.projects(vararg dependencies: String) = dependencies.map(::project)
+
+fun DependencyHandlerScope.projects(dependencies: List<String>) = dependencies.map(::project)

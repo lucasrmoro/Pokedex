@@ -5,8 +5,8 @@ import br.com.pokedex.BuildConfig
 import br.com.pokedex.core.di.CoreModule
 import br.com.pokedex.core_network.di.CoreNetworkModule
 import br.com.pokedex.core_ui.di.CoreUiModule
+import br.com.pokedex.di.loadFeatureModules
 import br.com.pokedex.local_storage.di.LocalStorageModule
-import br.com.pokedex.pokemons.di.PokemonsDataModule
 import org.koin.android.ext.koin.androidContext
 import org.koin.core.context.startKoin
 import timber.log.Timber
@@ -27,14 +27,15 @@ class AppApplication : Application() {
         startKoin {
             androidContext(applicationContext)
         }
+
         // Core
         CoreModule.init()
         CoreUiModule.init()
         CoreNetworkModule.init()
         LocalStorageModule.init()
 
-        // Data
-        PokemonsDataModule.init()
+        // Features
+        loadFeatureModules()
     }
 
 }

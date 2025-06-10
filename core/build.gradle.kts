@@ -1,11 +1,10 @@
 plugins {
     alias(libs.plugins.pokedex.android.library)
     alias(libs.plugins.ksp)
+    alias(libs.plugins.quadrant)
 }
 
-android {
-    namespace = "br.com.pokedex.core"
-}
+quadrantConfig.generateByDefault = false
 
 dependencies {
     implementation(libs.bundles.android)

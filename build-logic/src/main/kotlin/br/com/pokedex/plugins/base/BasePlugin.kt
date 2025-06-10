@@ -35,7 +35,7 @@ abstract class BasePlugin : Plugin<Project> {
         setupJvmTarget()
     }
 
-    protected fun setupProjectConfig(commonExt: CommonExtension<*, *, *, *, *, *>) {
+    protected fun Project.setupProjectConfig(commonExt: CommonExtension<*, *, *, *, *, *>) {
         commonExt.apply {
             compileSdk = ProjectConfig.COMPILE_SDK
 
@@ -45,7 +45,13 @@ abstract class BasePlugin : Plugin<Project> {
                 testInstrumentationRunner = ProjectConfig.ANDROID_JUNIT_RUNNER
             }
 
-            if (this is BaseExtension) {
+            with(buildFeatures) {
+                buildConfig = true
+                viewBinding = true
+            }
+
+            if (this@apply is BaseExtension) {
+                setupAndroidNamespace(this@setupProjectConfig)
                 setupBuildTypes()
                 setupFlavors()
             }
@@ -55,10 +61,15 @@ abstract class BasePlugin : Plugin<Project> {
                 targetCompatibility = ProjectConfig.JAVA_VERSION
             }
 
-            with(buildFeatures) {
-                buildConfig = true
-                viewBinding = true
-            }
+        }
+    }
+
+    private fun BaseExtension.setupAndroidNamespace(project: Project) {
+        namespace = when (this) {
+            is ApplicationExtension -> ProjectConfig.APP_ID
+            else -> ProjectConfig.APP_ID.plus(project.path)
+                .replace(":", ".")
+                .replace("-", "_")
         }
     }
 

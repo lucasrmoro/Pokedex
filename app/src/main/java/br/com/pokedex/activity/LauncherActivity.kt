@@ -11,8 +11,8 @@ class LauncherActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         startActivityByClassName(
             className = POKEMONS_LIST_ACTIVITY,
-            showActivityTransition = false,
-            finishCurrentActivity = true
+            finishCurrentActivity = true,
+            showActivityTransition = false
         )
     }
 

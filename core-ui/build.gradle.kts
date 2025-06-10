@@ -4,14 +4,10 @@ plugins {
     alias(libs.plugins.pokedex.android.library)
 }
 
-android {
-    namespace = "br.com.pokedex.core_ui"
-}
-
 dependencies {
     implementation(project(Modules.CORE))
-    implementation(project(Modules.DOMAIN))
-    implementation(project(Modules.Domain.POKEMONS))
+    implementation(project(Modules.COMMON_DOMAIN))
+    implementation(project(Modules.Feature.Pokemons.DOMAIN))
     implementation(libs.glide)
     implementation(libs.palette)
     implementation(libs.bundles.android)

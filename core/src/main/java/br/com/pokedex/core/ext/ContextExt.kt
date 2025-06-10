@@ -33,6 +33,8 @@ fun Context.getCustomAttributes(
 
 inline fun <reified T : AppCompatActivity> Context.openActivity(
     addNewTaskFlag: Boolean = false,
+    finishCurrent: Boolean = false,
+    showActivityTransition: Boolean = true,
     args: Bundle.() -> Unit = { }
 ) {
     Intent(this, T::class.java).also {
@@ -43,6 +45,10 @@ inline fun <reified T : AppCompatActivity> Context.openActivity(
         }
         it.putExtras(Bundle().apply(args))
         startActivity(it)
+        if (this is Activity) {
+            if (showActivityTransition.not()) stopPendingTransition()
+            if (finishCurrent) finish()
+        }
     }
 }
 

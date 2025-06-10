@@ -6,10 +6,6 @@ plugins {
     alias(libs.plugins.ksp)
 }
 
-android {
-    namespace = "br.com.pokedex.local_storage"
-}
-
 dependencies {
     implementation(project(Modules.CORE))
     implementation(libs.androidx.security)

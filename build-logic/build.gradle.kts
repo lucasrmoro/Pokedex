@@ -9,7 +9,7 @@ repositories {
 }
 
 dependencies {
-    implementation(files(libs.javaClass.superclass.protectionDomain.codeSource.location))
+    implementation(files((libs).javaClass.superclass.protectionDomain.codeSource.location))
     implementation(libs.annotationJvm)
     implementation(libs.quadrant)
     compileOnly(libs.android.gradle.tools)
@@ -44,6 +44,10 @@ gradlePlugin {
         register("androidFeature") {
             id = libs.plugins.pokedex.android.feature.get().pluginId
             implementationClass = "br.com.pokedex.plugins.AndroidFeaturePlugin"
+        }
+        register("diLoader") {
+            id = libs.plugins.pokedex.diLoader.get().pluginId
+            implementationClass = "br.com.pokedex.plugins.DILoaderModulePlugin"
         }
     }
 }
