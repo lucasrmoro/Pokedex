@@ -51,3 +51,5 @@ fun DependencyHandlerScope.implementationAll(dependencies: List<ProjectDependenc
 }
 
 fun DependencyHandlerScope.projects(vararg dependencies: String) = dependencies.map(::project)
+
+fun DependencyHandlerScope.projects(dependencies: List<String>) = dependencies.map(::project)

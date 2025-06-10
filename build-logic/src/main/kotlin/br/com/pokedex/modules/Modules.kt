@@ -21,6 +21,7 @@ object Modules {
 
     object DiLoader {
         private const val ROOT = ":di-loader"
+        val allModules = listOf(Pokemons.API, Pokemons.IMPL)
 
         object Pokemons {
             private const val POKEMONS = "$ROOT:pokemons"

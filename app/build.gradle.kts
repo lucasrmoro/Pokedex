@@ -10,7 +10,7 @@ plugins {
 dependencies {
     implementation(project(Modules.CORE_NETWORK))
     implementation(project(Modules.LOCAL_STORAGE))
-    implementationAll(projects(DiLoader.Pokemons.API, DiLoader.Pokemons.IMPL))
+    implementationAll(projects(DiLoader.allModules))
     implementation(project(Modules.Feature.Pokemons.PRESENTATION))
     implementation(libs.timber)
     implementation(libs.bundles.koin)
