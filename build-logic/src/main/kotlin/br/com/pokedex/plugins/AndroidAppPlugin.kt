@@ -3,13 +3,17 @@ package br.com.pokedex.plugins
 import br.com.pokedex.Plugins
 import br.com.pokedex.ProjectConfig
 import br.com.pokedex.ext.implementation
+import br.com.pokedex.ext.implementationAll
+import br.com.pokedex.ext.projects
 import br.com.pokedex.modules.Modules
+import br.com.pokedex.modules.Modules.DiLoader
 import br.com.pokedex.plugins.base.BasePlugin
 import com.android.build.api.dsl.ApplicationExtension
 import org.gradle.api.Project
 import org.gradle.kotlin.dsl.apply
 import org.gradle.kotlin.dsl.configure
 import org.gradle.kotlin.dsl.dependencies
+import org.gradle.kotlin.dsl.project
 
 class AndroidAppPlugin : BasePlugin() {
 
@@ -23,6 +27,7 @@ class AndroidAppPlugin : BasePlugin() {
         apply(plugin = Plugins.ANDROID_APPLICATION)
         apply(plugin = Plugins.KOTLIN_ANDROID)
         apply(plugin = Plugins.KSP)
+        apply(plugin = Plugins.QUADRANT)
     }
 
     private fun Project.setupConfig() = extensions.configure<ApplicationExtension> {
@@ -39,7 +44,12 @@ class AndroidAppPlugin : BasePlugin() {
     private fun Project.setupDependencies() = dependencies {
         implementation(project(Modules.CORE))
         implementation(project(Modules.CORE_UI))
+        implementation(project(Modules.CORE_NETWORK))
+        implementation(project(Modules.LOCAL_STORAGE))
+        implementationAll(projects(DiLoader.allModules))
         implementation(libs.material)
         implementation(libs.bundles.android)
+        implementation(libs.timber)
+        implementation(libs.bundles.koin)
     }
 }

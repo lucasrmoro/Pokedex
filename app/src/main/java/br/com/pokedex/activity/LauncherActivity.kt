@@ -2,14 +2,18 @@ package br.com.pokedex.activity
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import br.com.pokedex.core.ext.openActivity
-import br.com.pokedex.pokemons.list.activity.PokemonsListActivity
+import br.com.pokedex.core.ext.startActivityByClassName
+import com.gaelmarhic.quadrant.QuadrantConstants.POKEMONS_LIST_ACTIVITY
 
 class LauncherActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        openActivity<PokemonsListActivity>(finishCurrent = true, showActivityTransition = false)
+        startActivityByClassName(
+            className = POKEMONS_LIST_ACTIVITY,
+            finishCurrentActivity = true,
+            showActivityTransition = false
+        )
     }
 
 }
