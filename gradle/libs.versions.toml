@@ -93,6 +93,7 @@ kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 jetbrains-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
 android-library = { id = "com.android.library", version.ref = "agp" }
 ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
+quadrant = { id =  "com.gaelmarhic.quadrant", version.ref = "quadrant" }
 
 # Custom plugins
 pokedex-android-app = { id = "pokedex.android.app" }

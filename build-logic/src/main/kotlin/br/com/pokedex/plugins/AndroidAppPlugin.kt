@@ -27,7 +27,6 @@ class AndroidAppPlugin : BasePlugin() {
         apply(plugin = Plugins.ANDROID_APPLICATION)
         apply(plugin = Plugins.KOTLIN_ANDROID)
         apply(plugin = Plugins.KSP)
-        apply(plugin = Plugins.QUADRANT)
     }
 
     private fun Project.setupConfig() = extensions.configure<ApplicationExtension> {

@@ -5,7 +5,6 @@ import br.com.pokedex.ext.implementation
 import br.com.pokedex.ext.ksp
 import br.com.pokedex.modules.Modules
 import br.com.pokedex.plugins.base.BasePlugin
-import com.android.build.api.dsl.DynamicFeatureExtension
 import com.android.build.api.dsl.LibraryExtension
 import org.gradle.api.Project
 import org.gradle.kotlin.dsl.apply
@@ -24,7 +23,6 @@ class AndroidFeaturePlugin : BasePlugin() {
         apply(plugin = Plugins.ANDROID_LIBRARY)
         apply(plugin = Plugins.KOTLIN_ANDROID)
         apply(plugin = Plugins.KSP)
-        apply(plugin = Plugins.QUADRANT)
     }
 
     private fun Project.setupConfig() = extensions.configure<LibraryExtension> {
