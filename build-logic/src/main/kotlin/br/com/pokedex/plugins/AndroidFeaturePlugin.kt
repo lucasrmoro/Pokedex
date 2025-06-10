@@ -24,6 +24,7 @@ class AndroidFeaturePlugin : BasePlugin() {
         apply(plugin = Plugins.ANDROID_LIBRARY)
         apply(plugin = Plugins.KOTLIN_ANDROID)
         apply(plugin = Plugins.KSP)
+        apply(plugin = Plugins.QUADRANT)
     }
 
     private fun Project.setupConfig() = extensions.configure<LibraryExtension> {
