@@ -5,7 +5,7 @@ import br.com.pokedex.pokemons.di.pokemonsDomainModule
 import br.com.pokedex.pokemons.di.pokemonsPresentationModules
 import org.koin.core.context.loadKoinModules
 
-class PokemonsDIImpl : PokemonsDI {
+class PokemonsFeatureDIImpl : PokemonsFeatureDI {
 
     override fun load() {
         loadKoinModules(

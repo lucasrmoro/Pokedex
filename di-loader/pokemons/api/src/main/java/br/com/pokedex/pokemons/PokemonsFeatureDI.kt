@@ -1,6 +1,6 @@
 package br.com.pokedex.pokemons
 
-interface PokemonsDI {
+interface PokemonsFeatureDI {
 
     fun load()
 

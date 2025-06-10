@@ -1,14 +1,14 @@
 package br.com.pokedex.di
 
-import br.com.pokedex.pokemons.PokemonsDI
-import br.com.pokedex.pokemons.PokemonsDIImpl
+import br.com.pokedex.pokemons.PokemonsFeatureDI
+import br.com.pokedex.pokemons.PokemonsFeatureDIImpl
 import org.koin.core.context.loadKoinModules
 import org.koin.dsl.module
 
 private val modules = module {
-    single<PokemonsDI> { PokemonsDIImpl() }
+    single<PokemonsFeatureDI> { PokemonsFeatureDIImpl() }
 }
 
-fun loadModules() {
+fun loadFeatureModules() {
     loadKoinModules(modules)
 }
