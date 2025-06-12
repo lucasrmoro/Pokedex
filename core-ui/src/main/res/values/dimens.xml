@@ -45,4 +45,7 @@
 
     <!-- Pokemon Type Item -->
     <dimen name="pokemon_type_item_vh_height">32dp</dimen>
+
+    <!-- Pokemon Evolution Item -->
+    <dimen name="pokemon_evolution_item_image_size">64dp</dimen>
 </resources>

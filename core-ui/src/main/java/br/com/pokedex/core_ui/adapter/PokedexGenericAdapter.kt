@@ -10,11 +10,13 @@ import br.com.pokedex.core_ui.adapter.callbacks.generic.PokedexGenericAdapterCal
 import br.com.pokedex.core_ui.adapter.diffUtil.GenericItemDiffCallback
 import br.com.pokedex.core_ui.adapter.viewHolder.LoadingViewHolder
 import br.com.pokedex.core_ui.adapter.viewHolder.PokemonAbilityViewHolder
+import br.com.pokedex.core_ui.adapter.viewHolder.PokemonEvolutionViewHolder
 import br.com.pokedex.core_ui.adapter.viewHolder.PokemonStatViewHolder
 import br.com.pokedex.core_ui.adapter.viewHolder.PokemonTypeViewHolder
 import br.com.pokedex.core_ui.adapter.viewHolder.PokemonViewHolder
 import br.com.pokedex.core_ui.databinding.RvLoadingItemBinding
 import br.com.pokedex.core_ui.databinding.RvPokemonAbilityItemBinding
+import br.com.pokedex.core_ui.databinding.RvPokemonEvolutionItemBinding
 import br.com.pokedex.core_ui.databinding.RvPokemonItemBinding
 import br.com.pokedex.core_ui.databinding.RvPokemonStatItemBinding
 import br.com.pokedex.core_ui.databinding.RvPokemonTypeItemBinding
@@ -23,9 +25,11 @@ import br.com.pokedex.domain.adapter.AdapterViewType
 import br.com.pokedex.domain.adapter.AdapterViewType.LOADING
 import br.com.pokedex.domain.adapter.AdapterViewType.POKEMON
 import br.com.pokedex.domain.adapter.AdapterViewType.POKEMON_ABILITY
+import br.com.pokedex.domain.adapter.AdapterViewType.POKEMON_EVOLUTION
 import br.com.pokedex.domain.adapter.AdapterViewType.POKEMON_STAT
 import br.com.pokedex.domain.adapter.AdapterViewType.POKEMON_TYPE
 import br.com.pokedex.pokemons.model.PokemonAbilityItem
+import br.com.pokedex.pokemons.model.PokemonEvolutionItem
 import br.com.pokedex.pokemons.model.PokemonItem
 import br.com.pokedex.pokemons.model.PokemonStatItem
 import br.com.pokedex.pokemons.model.PokemonTypeItem
@@ -57,6 +61,10 @@ class PokedexGenericAdapter(
             POKEMON_ABILITY -> PokemonAbilityViewHolder(
                 RvPokemonAbilityItemBinding.inflate(inflater, parent, false)
             )
+
+            POKEMON_EVOLUTION -> PokemonEvolutionViewHolder(
+                RvPokemonEvolutionItemBinding.inflate(inflater, parent, false)
+            )
         }
     }
 
@@ -68,6 +76,10 @@ class PokedexGenericAdapter(
             is PokemonTypeViewHolder -> onBind(item as PokemonTypeItem)
             is PokemonStatViewHolder -> onBind(item as PokemonStatItem)
             is PokemonAbilityViewHolder -> onBind(item as PokemonAbilityItem, isLastItem(position))
+            is PokemonEvolutionViewHolder -> onBind(
+                item as PokemonEvolutionItem,
+                isLastItem(position)
+            )
         }
     }
 

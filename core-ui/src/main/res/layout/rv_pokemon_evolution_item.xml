@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/ivFrom"
+        android:layout_width="@dimen/pokemon_evolution_item_image_size"
+        android:layout_height="@dimen/pokemon_evolution_item_image_size"
+        app:layout_constraintBottom_toTopOf="@id/tvFrom"
+        app:layout_constraintEnd_toStartOf="@id/ivArrow"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <br.com.pokedex.core_ui.components.PokedexCircularLoading
+        android:id="@+id/loadingFrom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@id/ivFrom"
+        app:layout_constraintEnd_toEndOf="@id/ivFrom"
+        app:layout_constraintStart_toStartOf="@id/ivFrom"
+        app:layout_constraintTop_toTopOf="@id/ivFrom"
+        tools:visibility="visible" />
+
+    <TextView
+        android:id="@+id/tvFrom"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/small_dimen"
+        android:ellipsize="end"
+        android:gravity="center"
+        android:maxLines="2"
+        app:layout_constraintBottom_toTopOf="@id/vDivider"
+        app:layout_constraintEnd_toEndOf="@id/ivFrom"
+        app:layout_constraintStart_toStartOf="@id/ivFrom"
+        app:layout_constraintTop_toBottomOf="@id/ivFrom"
+        app:layout_constraintVertical_bias="0"
+        tools:text="Squirtle" />
+
+    <TextView
+        android:id="@+id/tvEvolution"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:ellipsize="end"
+        android:gravity="center"
+        android:maxLines="2"
+        app:layout_constraintBottom_toTopOf="@id/ivArrow"
+        app:layout_constraintEnd_toEndOf="@id/ivArrow"
+        app:layout_constraintStart_toStartOf="@id/ivArrow"
+        tools:text="Lv. 32" />
+
+    <ImageView
+        android:id="@+id/ivArrow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_horizontal_arrow"
+        app:layout_constraintBottom_toTopOf="@id/vDivider"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/ivTo"
+        android:layout_width="@dimen/pokemon_evolution_item_image_size"
+        android:layout_height="@dimen/pokemon_evolution_item_image_size"
+        app:layout_constraintBottom_toTopOf="@id/tvFrom"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/ivArrow"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <br.com.pokedex.core_ui.components.PokedexCircularLoading
+        android:id="@+id/loadingTo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@id/ivTo"
+        app:layout_constraintEnd_toEndOf="@id/ivTo"
+        app:layout_constraintStart_toStartOf="@id/ivTo"
+        app:layout_constraintTop_toTopOf="@id/ivTo"
+        tools:visibility="visible" />
+
+    <TextView
+        android:id="@+id/tvTo"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/small_dimen"
+        android:ellipsize="end"
+        android:gravity="center"
+        android:maxLines="2"
+        app:layout_constraintBottom_toTopOf="@id/vDivider"
+        app:layout_constraintEnd_toEndOf="@id/ivTo"
+        app:layout_constraintStart_toStartOf="@id/ivTo"
+        app:layout_constraintTop_toBottomOf="@id/ivTo"
+        app:layout_constraintVertical_bias="0"
+        tools:text="Wartortle" />
+
+    <View
+        android:id="@+id/vDivider"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/default_stroke_size"
+        android:layout_marginVertical="@dimen/tiny_dimen"
+        android:background="@color/dark_200"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:visibility="visible" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
